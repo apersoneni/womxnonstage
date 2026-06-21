@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WOMXN ON STAGE - Sing it. Paint it. Pitch it. Own it.</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e8d5f0 0%, #d4b8e8 50%, #c9a8e0 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Decorative flowers */
+        .flower {
+            position: fixed;
+            font-size: 60px;
+            opacity: 0.8;
+            z-index: 0;
+        }
+
+        .flower-left {
+            left: -20px;
+            top: 10%;
+        }
+
+        .flower-right {
+            right: -20px;
+            top: 50%;
+        }
+
+        .flower-right-top {
+            right: 30px;
+            top: 5%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            background: #5a2d5a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 3.5em;
+            font-weight: 900;
+            color: #1a1a1a;
+            letter-spacing: -2px;
+            margin-bottom: 15px;
+        }
+
+        .tagline {
+            font-size: 1.8em;
+            color: #6b5b95;
+            font-style: italic;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        .subtitle {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        /* Sponsors Section */
+        .sponsors {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 80px;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+        }
+
+        .sponsor {
+            text-align: center;
+        }
+
+        .sponsor-label {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .sponsor-logo {
+            font-size: 4em;
+            margin-bottom: 10px;
+        }
+
+        .sponsor-name {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #1a1a1a;
+        }
+
+        /* Editions */
+        .edition {
+            margin-bottom: 80px;
+        }
+
+        .edition-title {
+            font-size: 1.5em;
+            color: #6b5b95;
+            font-style: italic;
+            margin-bottom: 30px;
+            padding-left: 20px;
+            border-left: 4px solid #d946a6;
+        }
+
+        .artists-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .artist-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .artist-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .artist-name {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .artist-role {
+            font-size: 0.85em;
+            color: #d946a6;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .artist-instagram {
+            color: #d946a6;
+            text-decoration: none;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .artist-instagram:hover {
+            text-decoration: underline;
+        }
+
+        .instagram-icon {
+            display: inline-block;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 100px;
+            padding-top: 40px;
+            border-top: 2px solid rgba(0, 0, 0, 0.1);
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .tagline {
+                font-size: 1.3em;
+            }
+
+            .sponsors {
+                gap: 40px;
+            }
+
+            .artists-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Decorative Flowers -->
+    <div class="flower flower-left">🌸</div>
+    <div class="flower flower-right">🌸</div>
+    <div class="flower flower-right-top">🌸</div>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">WOMXN<br>ON<br>STAGE</div>
+            <h1>WOMXN ON STAGE</h1>
+            <p class="tagline">Sing it. Paint it. Pitch it. Own it.</p>
+            <p class="subtitle">Every artist who has graced our stage — click to follow them</p>
+
+            <!-- Sponsors -->
+            <div class="sponsors">
+                <div class="sponsor">
+                    <p class="sponsor-label">Founded by</p>
+                    <div class="sponsor-logo">🎸</div>
+                    <p class="sponsor-name">ANBLZN</p>
+                </div>
+                <div class="sponsor">
+                    <p class="sponsor-label">Zurich sponsor venue</p>
+                    <div class="sponsor-logo">🎉</div>
+                    <p class="sponsor-name">EKSTASE</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 1st Edition -->
+        <div class="edition">
+            <h2 class="edition-title">1st Edition — June 20th, 2025</h2>
+            <div class="artists-grid">
+                <div class="artist-card">
+                    <p class="artist-name">Jane in Flames</p>
+                    <a href="https://instagram.com/jane_in_flames" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @jane_in_flames
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">Lea Lustenberger</p>
+                    <a href="https://instagram.com/lustenbergerlea" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @lustenbergerlea
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">Regina Brury</p>
+                    <a href="https://instagram.com/reginabrury" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @reginabrury
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">Thea Sofia</p>
+                    <a href="https://instagram.com/thea.sofia.13" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @thea.sofia.13
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">XOVA</p>
+                    <p class="artist-role">Entrepreneur</p>
+                    <a href="https://instagram.com/xova.ch" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @xova.ch
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2nd Edition -->
+        <div class="edition">
+            <h2 class="edition-title">2nd Edition — July 10th, 2025</h2>
+            <div class="artists-grid">
+                <div class="artist-card">
+                    <p class="artist-name">Sissi</p>
+                    <a href="https://instagram.com/sissi_sings" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @sissi_sings
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">Shilpa Ananth</p>
+                    <p class="artist-role">Surprise Guest</p>
+                    <a href="https://instagram.com/shilpaananth" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @shilpaananth
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">Jane Taudien</p>
+                    <a href="https://instagram.com/janetaudien" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @janetaudien
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">Elisabetta Previati</p>
+                    <a href="https://instagram.com/elisabetta.previati" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @elisabetta.previati
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">Viviane Nuscheler</p>
+                    <a href="https://instagram.com/vivianenuescheler" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @vivianenuescheler
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">XOVA</p>
+                    <p class="artist-role">Entrepreneur</p>
+                    <a href="https://instagram.com/xova.ch" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @xova.ch
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3rd Edition -->
+        <div class="edition">
+            <h2 class="edition-title">3rd Edition — August 15th, 2025</h2>
+            <div class="artists-grid">
+                <div class="artist-card">
+                    <p class="artist-name">Sarah Singer & Jieun Choi</p>
+                    <a href="https://instagram.com/mujazz.ch" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @mujazz.ch
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">Olivia Aurora</p>
+                    <a href="https://instagram.com/oliviaauroramusic" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @oliviaauroramusic
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">Mahi</p>
+                    <a href="https://instagram.com/jialu_qin_" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @jialu_qin_
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">Purnama</p>
+                    <a href="https://instagram.com/purnama.world" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @purnama.world
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">XOVA</p>
+                    <p class="artist-role">Entrepreneur</p>
+                    <a href="https://instagram.com/xova.ch" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @xova.ch
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4th Edition -->
+        <div class="edition">
+            <h2 class="edition-title">4th Edition — September 26th, 2025</h2>
+            <div class="artists-grid">
+                <div class="artist-card">
+                    <p class="artist-name">Soe Blue</p>
+                    <a href="https://instagram.com/soe.blue" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @soe.blue
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">Zoe</p>
+                    <a href="https://instagram.com/zoeychanzinger" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @zoeychanzinger
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">Julie Bridge</p>
+                    <a href="https://instagram.com/juliebridgee" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @juliebridgee
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">Chiara</p>
+                    <a href="https://instagram.com/chiaradubey" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @chiaradubey
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">XOVA</p>
+                    <p class="artist-role">Entrepreneur</p>
+                    <a href="https://instagram.com/xova.ch" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @xova.ch
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5th Edition -->
+        <div class="edition">
+            <h2 class="edition-title">5th Edition — October 24th, 2025</h2>
+            <div class="artists-grid">
+                <div class="artist-card">
+                    <p class="artist-name">Tigerbaum</p>
+                    <a href="https://instagram.com/tigerbaum_" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @tigerbaum_
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">Antartik</p>
+                    <a href="https://instagram.com/antto_logy" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @antto_logy
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">Scarlett</p>
+                    <a href="https://instagram.com/scar.lettofficial" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @scar.lettofficial
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">XOVA</p>
+                    <p class="artist-role">Entrepreneur</p>
+                    <a href="https://instagram.com/xova.ch" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @xova.ch
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6th Edition -->
+        <div class="edition">
+            <h2 class="edition-title">6th Edition — November 14th, 2025</h2>
+            <div class="artists-grid">
+                <div class="artist-card">
+                    <p class="artist-name">Oscen</p>
+                    <a href="https://instagram.com/thisisoscen" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @thisisoscen
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">Alessa</p>
+                    <a href="https://instagram.com/alessasmusic" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @alessasmusic
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">Sayn</p>
+                    <a href="https://instagram.com/saynspace" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @saynspace
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">XOVA</p>
+                    <p class="artist-role">Entrepreneur</p>
+                    <a href="https://instagram.com/xova.ch" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @xova.ch
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 7th Edition -->
+        <div class="edition">
+            <h2 class="edition-title">7th Edition — December 6th, 2025</h2>
+            <div class="artists-grid">
+                <div class="artist-card">
+                    <p class="artist-name">Mane</p>
+                    <a href="https://instagram.com/sheismanemusic" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @sheismanemusic
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">Touching Your Soul</p>
+                    <a href="https://instagram.com/touching_your_soul_24" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @touching_your_soul_24
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">Ziza</p>
+                    <a href="https://instagram.com/zizamusic" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @zizamusic
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">Lentl</p>
+                    <p class="artist-role">Entrepreneur</p>
+                    <a href="https://instagram.com/eatlentl" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @eatlentl
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">Clothilde Teillou</p>
+                    <p class="artist-role">Musician</p>
+                    <a href="https://instagram.com/clothos_" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @clothos_
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">Eveline Derron</p>
+                    <p class="artist-role">Painter</p>
+                    <a href="https://instagram.com/eve_____art" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @eve_____art
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8th Edition -->
+        <div class="edition">
+            <h2 class="edition-title">8th Edition — January 24th, 2026</h2>
+            <div class="artists-grid">
+                <div class="artist-card">
+                    <p class="artist-name">Mariachibell</p>
+                    <a href="https://instagram.com/annabelpersoneni" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @annabelpersoneni
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">Ezgi & Ulku</p>
+                    <a href="https://instagram.com/ezgi_berberoglu" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @ezgi_berberoglu
+                    </a>
+                    <a href="https://instagram.com/ulkucanc" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @ulkucanc
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">Shara</p>
+                    <a href="https://instagram.com/sharas_way" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @sharas_way
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">Lentl</p>
+                    <p class="artist-role">Entrepreneur</p>
+                    <a href="https://instagram.com/eatlentl" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @eatlentl
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">Irina Kryshnia</p>
+                    <p class="artist-role">Visual Artist</p>
+                    <a href="https://instagram.com/kryshnia_art" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @kryshnia_art
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9th Edition -->
+        <div class="edition">
+            <h2 class="edition-title">9th Edition — February 21st, 2026</h2>
+            <div class="artists-grid">
+                <div class="artist-card">
+                    <p class="artist-name">Las Melos</p>
+                    <a href="https://instagram.com/bara_guitar" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @bara_guitar
+                    </a>
+                    <a href="https://instagram.com/tamynogu" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @tamynogu
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">Anoka Lajau</p>
+                    <a href="https://instagram.com/anoka.lajau" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @anoka.lajau
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">Hanna Karina Muller</p>
+                    <p class="artist-role">Visual Artist</p>
+                    <a href="https://instagram.com/hkm_artspace" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @hkm_artspace
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">Rozana Zar</p>
+                    <p class="artist-role">Stand-up Comedian</p>
+                    <a href="https://instagram.com/rozanazarcomedy" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @rozanazarcomedy
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">Annabel</p>
+                    <a href="https://instagram.com/annabelpersoneni" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @annabelpersoneni
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10th Edition -->
+        <div class="edition">
+            <h2 class="edition-title">10th Edition — March 26th, 2026</h2>
+            <div class="artists-grid">
+                <div class="artist-card">
+                    <p class="artist-name">Hanna Karina Muller</p>
+                    <p class="artist-role">Visual Artist</p>
+                    <a href="https://instagram.com/hkm_artspace" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @hkm_artspace
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">Nina Meyer & Annaleah Kressig</p>
+                    <p class="artist-role">Entrepreneur - Artena</p>
+                    <a href="https://instagram.com/artena.studios" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @artena.studios
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">Mixed Flames</p>
+                    <a href="https://instagram.com/mixedflames" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @mixedflames
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">Annabel</p>
+                    <a href="https://instagram.com/annabelpersoneni" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @annabelpersoneni
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">Elisabetta Previati</p>
+                    <a href="https://instagram.com/elisabetta.previati" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @elisabetta.previati
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 11th Edition -->
+        <div class="edition">
+            <h2 class="edition-title">11th Edition — May 8th, 2026 — Guadalajara 🌎</h2>
+            <div class="artists-grid">
+                <div class="artist-card">
+                    <p class="artist-name">Ainka</p>
+                    <a href="https://instagram.com/ainka_oficial" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @ainka_oficial
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">Flor Canela</p>
+                    <a href="https://instagram.com/flor__canelaa__" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @flor__canelaa__
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">Andrea</p>
+                    <p class="artist-role">Painter</p>
+                    <a href="https://instagram.com/andrea_realidadilustrada" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @andrea_realidadilustrada
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">Las Coronelas</p>
+                    <a href="https://instagram.com/las.coronelass" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @las.coronelass
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">Annabel</p>
+                    <a href="https://instagram.com/annabelpersoneni" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @annabelpersoneni
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 12th Edition -->
+        <div class="edition">
+            <h2 class="edition-title">12th Edition — May 25th, 2026 — Casa Arias, Buenos Aires, Argentina</h2>
+            <div class="artists-grid">
+                <div class="artist-card">
+                    <p class="artist-name">Annabel Personeni</p>
+                    <a href="https://instagram.com/annabelpersoneni" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @annabelpersoneni
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">Romina & Laura</p>
+                    <a href="https://instagram.com/rominadavilaoficial" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @rominadavilaoficial
+                    </a>
+                    <a href="https://instagram.com/laura_enpiano" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @laura_enpiano
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">Luz Matas</p>
+                    <a href="https://instagram.com/luz.matas" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @luz.matas
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">Lucrecia</p>
+                    <p class="artist-role">Entrepreneur</p>
+                    <a href="https://instagram.com/lucrenicolosi_" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @lucrenicolosi_
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">Darshan</p>
+                    <p class="artist-role">Entrepreneur</p>
+                    <a href="https://instagram.com/darshansatyakaur" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @darshansatyakaur
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">Moni</p>
+                    <p class="artist-role">Painter</p>
+                    <a href="https://instagram.com/moni.a.aguero" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @moni.a.aguero
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">Malena</p>
+                    <p class="artist-role">Co-organizer</p>
+                    <a href="https://instagram.com/maleglezer" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @maleglezer
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 13th Edition -->
+        <div class="edition">
+            <h2 class="edition-title">13th Edition — June 5th, 2026 — 1 Year Anniversary in Zurich</h2>
+            <div class="artists-grid">
+                <div class="artist-card">
+                    <p class="artist-name">Annabel Personeni</p>
+                    <a href="https://instagram.com/annabelpersoneni" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @annabelpersoneni
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">Sissi</p>
+                    <a href="https://instagram.com/sissi_sings" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @sissi_sings
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">Elizabetta</p>
+                    <p class="artist-role">Entrepreneur</p>
+                    <a href="https://instagram.com/elisabetta.previati" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @elisabetta.previati
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">Sara Bellamy</p>
+                    <a href="https://instagram.com/finefolkzurich" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @finefolkzurich
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">Rozana Zar</p>
+                    <p class="artist-role">Comedian & Entrepreneur</p>
+                    <a href="https://instagram.com/rozanazarcomedy" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @rozanazarcomedy
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">XOVA</p>
+                    <p class="artist-role">Entrepreneur</p>
+                    <a href="https://instagram.com/xova.ch" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @xova.ch
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">Diana</p>
+                    <p class="artist-role">Entrepreneur</p>
+                    <a href="https://instagram.com/karmi.purpose" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @karmi.purpose
+                    </a>
+                </div>
+                <div class="artist-card">
+                    <p class="artist-name">Isabel</p>
+                    <a href="https://instagram.com/toqapu_studio" target="_blank" class="artist-instagram">
+                        <span class="instagram-icon">📷</span> @toqapu_studio
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2026 WOMXN ON STAGE. All artists deserve to be seen and heard. 💜</p>
+        </footer>
+    </div>
+</body>
+</html>
