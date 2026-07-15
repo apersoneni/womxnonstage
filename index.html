@@ -330,6 +330,33 @@
       object-fit: cover; opacity: 0.7;
       position: absolute; bottom: 1.25rem; right: 1.25rem;
     }
+    .rsvp-wrap { width: 100%; margin-top: auto; padding-top: 1rem; border-top: 1px solid rgba(201,168,76,0.15); }
+    .rsvp-toggle {
+      width: 100%; font-family: 'Montserrat', sans-serif;
+      font-size: 0.58rem; letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--gold); background: rgba(201,168,76,0.08);
+      border: 1px solid rgba(201,168,76,0.3); padding: 0.6rem 1rem;
+      cursor: pointer; transition: background 0.2s;
+    }
+    .rsvp-toggle:hover { background: rgba(201,168,76,0.18); }
+    .rsvp-inline { display: none; margin-top: 0.6rem; flex-direction: row; }
+    .rsvp-inline.open { display: flex; }
+    .rsvp-inline-input {
+      flex: 1; background: rgba(22,10,42,0.8); border: 1px solid rgba(201,168,76,0.3);
+      border-right: none; color: #f5f0ea;
+      font-family: 'Cormorant Garamond', Georgia, serif; font-size: 0.9rem;
+      padding: 0.45rem 0.7rem; outline: none;
+    }
+    .rsvp-inline-input::placeholder { color: rgba(245,240,234,0.3); font-style: italic; }
+    .rsvp-inline-input:focus { border-color: rgba(201,168,76,0.6); }
+    .rsvp-inline-btn {
+      font-family: 'Montserrat', sans-serif; font-size: 0.8rem;
+      background: rgba(201,168,76,0.15); border: 1px solid rgba(201,168,76,0.4);
+      color: var(--gold); padding: 0.45rem 0.8rem; cursor: pointer;
+      transition: background 0.2s;
+    }
+    .rsvp-inline-btn:hover { background: rgba(201,168,76,0.3); }
+    .rsvp-thanks { display: none; text-align: center; font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; color: var(--gold); font-size: 0.95rem; margin-top: 0.6rem; }
 
     @media (max-width: 768px) {
       .upcoming-grid { grid-template-columns: 1fr; }
@@ -1249,6 +1276,7 @@
 
       <!-- Ed. 16 — Kuala Lumpur -->
       <div class="upcoming-card">
+        <span class="upcoming-badge free">Free · Donations Based</span>
         <div class="upcoming-flag">🇲🇾</div>
         <div class="upcoming-edition">Ed. 16</div>
         <div class="upcoming-city">Kuala Lumpur</div>
@@ -1256,6 +1284,14 @@
         <div class="upcoming-date">Saturday, 1 August 2026</div>
         <div class="upcoming-time">20:30</div>
         <a class="upcoming-venue" href="https://www.instagram.com/bobokl" target="_blank" rel="noopener" style="text-decoration:none;">@bobokl · Bobo KL</a>
+        <div class="rsvp-wrap" id="kl-rsvp">
+          <button class="rsvp-toggle" onclick="toggleRSVP()">RSVP Free →</button>
+          <form class="rsvp-inline" id="kl-form" onsubmit="submitRSVP(event)">
+            <input class="rsvp-inline-input" type="email" id="kl-email" placeholder="your@email.com" required />
+            <button class="rsvp-inline-btn" type="submit">→</button>
+          </form>
+          <div class="rsvp-thanks" id="kl-thanks">See you there ✦</div>
+        </div>
         <img src="wos-logo.jpg" class="upcoming-logo" alt="WOS logo" />
       </div>
 
@@ -1894,6 +1930,22 @@
     lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
   })();
+
+  function toggleRSVP() {
+    const form = document.getElementById('kl-form');
+    form.classList.toggle('open');
+    if (form.classList.contains('open')) form.querySelector('input').focus();
+  }
+
+  function submitRSVP(e) {
+    e.preventDefault();
+    const email = document.getElementById('kl-email').value;
+    const subject = encodeURIComponent('RSVP — WOMXN ON STAGE · KL · 1 August 2026');
+    const body = encodeURIComponent('Hi Annabel,\n\nI\'d love to join WOMXN ON STAGE Edition 16 in Kuala Lumpur on Saturday, 1 August 2026.\n\nMy email: ' + email + '\n\nSee you there!');
+    window.location.href = 'mailto:personeni.annabel@gmail.com?subject=' + subject + '&body=' + body;
+    document.getElementById('kl-form').classList.remove('open');
+    document.getElementById('kl-thanks').style.display = 'block';
+  }
 </script>
 </body>
 </html>
