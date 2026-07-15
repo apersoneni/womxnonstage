@@ -1,0 +1,1895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WOMXN ON STAGE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --plum:    #160a2a;
+      --midnight: #1f0e42;
+      --violet:  #2e1760;
+      --gold:    #c9a84c;
+      --gold-lt: #e8cc82;
+      --blush:   #f0b0c8;
+      --lavender:#c4aee8;
+      --cream:   #f5f0ea;
+      --white:   #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--plum);
+      color: var(--cream);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ───────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.25rem 3rem;
+      background: linear-gradient(to bottom, rgba(22,10,42,0.95), transparent);
+      backdrop-filter: blur(4px);
+    }
+    .nav-logo {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; flex-wrap: wrap; }
+    .nav-links a {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--lavender);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+
+    /* ── HERO ──────────────────────────────────────────── */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 40%, rgba(100,50,180,0.4) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 50% at 20% 80%, rgba(201,168,76,0.15) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 40% at 80% 20%, rgba(240,176,200,0.12) 0%, transparent 60%),
+        linear-gradient(160deg, #160a2a 0%, #1f0e42 40%, #2e1760 70%, #160a2a 100%);
+      z-index: 0;
+    }
+
+    /* star field */
+    .stars {
+      position: absolute; inset: 0; z-index: 1;
+      pointer-events: none;
+    }
+    .star {
+      position: absolute;
+      border-radius: 50%;
+      background: white;
+      animation: twinkle var(--dur, 3s) ease-in-out infinite alternate;
+      animation-delay: var(--delay, 0s);
+      opacity: var(--op, 0.4);
+    }
+    @keyframes twinkle { from { opacity: var(--op, 0.4); } to { opacity: 0.05; } }
+
+    .hero-content { position: relative; z-index: 2; }
+
+    .hero-eyebrow {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 2rem;
+      display: flex; align-items: center; gap: 1rem;
+      justify-content: center;
+    }
+    .hero-eyebrow::before, .hero-eyebrow::after {
+      content: ''; display: block; height: 1px; width: 60px;
+      background: var(--gold); opacity: 0.5;
+    }
+
+    h1 {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: clamp(3rem, 10vw, 8rem);
+      font-weight: 900;
+      line-height: 0.9;
+      letter-spacing: 0.03em;
+      background: linear-gradient(135deg, var(--gold-lt) 0%, var(--blush) 40%, var(--lavender) 80%, var(--gold) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-tagline {
+      font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+      font-style: italic;
+      font-weight: 300;
+      color: var(--lavender);
+      max-width: 600px;
+      line-height: 1.6;
+      margin: 0 auto 1rem;
+    }
+
+    .hero-date {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--blush);
+      margin-bottom: 3rem;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 1rem 3rem;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-primary::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: var(--gold);
+      transform: translateX(-101%);
+      transition: transform 0.3s ease;
+      z-index: -1;
+    }
+    .btn-primary:hover { color: var(--plum); }
+    .btn-primary:hover::before { transform: translateX(0); }
+
+    .hero-countries {
+      display: flex; flex-wrap: wrap; justify-content: center;
+      gap: 0.5rem 1rem;
+      margin: 1.25rem 0 2.5rem;
+    }
+    .hero-country {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      color: var(--lavender);
+      opacity: 0.8;
+    }
+    .hero-country-sep {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem;
+      color: var(--gold);
+      opacity: 0.4;
+    }
+
+    .btn-instagram {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 2.5rem;
+      margin-bottom: 2.5rem;
+      background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+      color: white;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-weight: 500;
+      transition: opacity 0.3s, transform 0.3s;
+    }
+    .btn-instagram:hover { opacity: 0.85; transform: translateY(-2px); }
+
+    .scroll-hint {
+      position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+      z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+      font-family: 'Montserrat', sans-serif; font-size: 0.6rem; letter-spacing: 0.3em;
+      text-transform: uppercase; color: var(--lavender); opacity: 0.6;
+    }
+    .scroll-line {
+      width: 1px; height: 50px;
+      background: linear-gradient(to bottom, var(--lavender), transparent);
+      animation: scrollDrop 2s ease-in-out infinite;
+    }
+    @keyframes scrollDrop {
+      0%, 100% { transform: scaleY(1); opacity: 0.6; }
+      50% { transform: scaleY(0.5); opacity: 0.2; }
+    }
+
+    /* ── UPCOMING ─────────────────────────────────────── */
+    #upcoming { background: linear-gradient(180deg, var(--midnight) 0%, var(--violet) 100%); }
+
+    .upcoming-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+    @media (max-width: 1100px) {
+      .upcoming-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .upcoming-card {
+      position: relative;
+      padding: 2.5rem 2rem 2rem;
+      border: 1px solid rgba(201,168,76,0.2);
+      background: linear-gradient(160deg, rgba(46,23,96,0.5), rgba(22,10,42,0.7));
+      overflow: hidden;
+      display: flex; flex-direction: column; gap: 0.4rem;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+    .upcoming-card:hover { transform: translateY(-5px); border-color: rgba(201,168,76,0.45); }
+
+    .upcoming-card.featured { border-color: rgba(201,168,76,0.35); }
+    .upcoming-card.featured::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(to right, var(--gold), var(--blush), var(--lavender));
+    }
+    .upcoming-card.surprise {
+      border-style: dashed;
+      border-color: rgba(196,174,232,0.25);
+    }
+
+    .upcoming-badge {
+      display: inline-block;
+      padding: 0.2rem 0.7rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.55rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      background: var(--gold);
+      color: var(--plum);
+      font-weight: 500;
+      width: fit-content;
+      margin-bottom: 0.75rem;
+    }
+    .upcoming-badge.free { background: var(--gold); color: var(--plum); }
+    .upcoming-badge.mystery {
+      background: transparent;
+      color: var(--lavender);
+      border: 1px solid rgba(196,174,232,0.4);
+    }
+
+    .upcoming-flag { font-size: 1.75rem; margin-bottom: 0.25rem; }
+    .upcoming-edition {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.58rem; letter-spacing: 0.3em;
+      text-transform: uppercase; color: var(--gold);
+    }
+    .upcoming-city {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: clamp(1.2rem, 2.5vw, 1.65rem);
+      color: var(--cream); line-height: 1.1;
+      margin: 0.3rem 0 0.1rem;
+    }
+    .upcoming-country {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.6rem; letter-spacing: 0.25em;
+      text-transform: uppercase; color: var(--lavender);
+    }
+    .upcoming-date {
+      font-size: 1.05rem; font-style: italic;
+      color: var(--blush); margin-top: 1rem;
+    }
+    .upcoming-time {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 0.9rem; color: var(--gold-lt);
+    }
+    .upcoming-desc {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 0.85rem; font-style: italic;
+      color: var(--blush); letter-spacing: 0.03em;
+      margin-top: 0.3rem;
+    }
+    .upcoming-lineup {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.6rem; letter-spacing: 0.12em;
+      color: rgba(196,174,232,0.75);
+      line-height: 1.8;
+      margin-top: 0.75rem;
+      text-transform: uppercase;
+    }
+    .upcoming-lineup strong {
+      color: var(--gold-lt);
+      font-weight: 500;
+    }
+    .upcoming-venue {
+      font-size: 0.95rem; font-weight: 300; font-style: italic;
+      color: var(--lavender);
+      margin-top: auto; padding-top: 1.25rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .upcoming-venue.tba { opacity: 0.45; }
+    .upcoming-logo {
+      width: 44px; height: 44px; border-radius: 50%;
+      object-fit: cover; opacity: 0.7;
+      position: absolute; bottom: 1.25rem; right: 1.25rem;
+    }
+
+    @media (max-width: 768px) {
+      .upcoming-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── EVENT POSTER ─────────────────────────────────── */
+    #poster {
+      background: linear-gradient(180deg, var(--midnight) 0%, var(--violet) 60%, var(--midnight) 100%);
+      padding: 5rem 3rem; text-align: center;
+    }
+    .poster-frame {
+      display: inline-block; position: relative; margin-top: 1.5rem;
+    }
+    .poster-glow {
+      position: absolute; inset: -30px; border-radius: 20px; pointer-events: none;
+      background: radial-gradient(ellipse at 50% 40%, rgba(201,168,76,0.18) 0%, transparent 70%);
+    }
+    .poster-img {
+      display: block; width: 420px; max-width: calc(100vw - 4rem);
+      border-radius: 8px;
+      box-shadow: 0 32px 90px rgba(0,0,0,0.65), 0 0 0 1px rgba(201,168,76,0.20);
+      position: relative; z-index: 1;
+    }
+    .btn-download {
+      display: inline-block; margin-top: 2.5rem;
+      padding: 0.8rem 2.5rem;
+      font-family: 'Montserrat', sans-serif; font-size: 0.65rem;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--plum); background: var(--gold); text-decoration: none;
+      border-radius: 2px; transition: background 0.3s, transform 0.2s;
+    }
+    .btn-download:hover { background: var(--gold-lt); transform: translateY(-2px); }
+
+    /* ── ALUMNI ────────────────────────────────────────── */
+    #alumni { background: linear-gradient(180deg, var(--violet) 0%, var(--midnight) 100%); }
+
+    .alumni-stats {
+      display: flex; gap: 3rem; margin-bottom: 4rem; flex-wrap: wrap;
+    }
+    .stat { display: flex; flex-direction: column; align-items: flex-start; }
+    .stat-num {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      color: var(--gold);
+      line-height: 1;
+    }
+    .stat-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--lavender);
+      margin-top: 0.35rem;
+    }
+
+    .filter-row {
+      display: flex; gap: 0.6rem; margin-bottom: 3rem; flex-wrap: wrap;
+    }
+    .filter-btn {
+      padding: 0.55rem 1.4rem;
+      border: 1px solid rgba(196,174,232,0.25);
+      background: transparent;
+      color: var(--lavender);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+    .filter-btn:hover { border-color: var(--lavender); color: var(--cream); }
+    .filter-btn.active {
+      background: rgba(196,174,232,0.12);
+      border-color: var(--lavender);
+      color: var(--cream);
+    }
+
+    .editions-list { display: flex; flex-direction: column; gap: 0.75rem; }
+
+    .edition {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 1.5rem;
+      align-items: center;
+      padding: 1.4rem 2rem;
+      border: 1px solid rgba(201,168,76,0.12);
+      background: rgba(255,255,255,0.015);
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .edition:hover {
+      border-color: rgba(201,168,76,0.3);
+      background: rgba(201,168,76,0.03);
+    }
+    .edition[hidden] { display: none !important; }
+
+    .edition-meta { display: flex; flex-direction: column; gap: 0.25rem; }
+    .edition-num {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 0.75rem;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+    }
+    .edition-date {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      color: var(--lavender);
+    }
+    .edition-venue {
+      font-size: 0.85rem;
+      font-style: italic;
+      color: var(--blush);
+      margin-top: 0.1rem;
+    }
+
+    .performers-row { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .p-chip {
+      padding: 0.3rem 0.9rem;
+      border: 1px solid rgba(245,240,234,0.15);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--cream);
+      white-space: nowrap;
+      transition: border-color 0.2s, color 0.2s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    a.p-chip:hover { border-color: var(--blush); color: var(--blush); }
+    a.p-chip::after {
+      content: '↗';
+      font-size: 0.65rem;
+      opacity: 0.35;
+      transition: opacity 0.2s;
+      font-family: 'Montserrat', sans-serif;
+    }
+    a.p-chip:hover::after { opacity: 1; }
+
+    a.p-chip.music:hover  { border-color: var(--lavender); color: var(--lavender); }
+    a.p-chip.entrepreneur { border-color: rgba(201,168,76,0.2); }
+    a.p-chip.entrepreneur:hover { border-color: var(--gold); color: var(--gold); }
+    a.p-chip.artist       { border-color: rgba(240,176,200,0.2); }
+    a.p-chip.artist:hover { border-color: var(--blush); color: var(--blush); }
+
+    .chip-legend {
+      display: flex; gap: 2rem; margin-bottom: 2.5rem; flex-wrap: wrap;
+      align-items: center;
+    }
+    .legend-item {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.6rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--lavender); opacity: 0.6;
+    }
+    .legend-dot {
+      width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0;
+    }
+    .legend-dot.music        { background: var(--lavender); }
+    .legend-dot.entrepreneur { background: var(--gold); }
+    .legend-dot.artist       { background: var(--blush); }
+    .legend-dot.dancer       { background: #5ed8d2; }
+    a.p-chip.dancer          { border-color: rgba(94,216,210,0.2); }
+    a.p-chip.dancer:hover    { border-color: #5ed8d2; color: #5ed8d2; }
+
+    @media (max-width: 600px) {
+      .edition { grid-template-columns: 1fr; gap: 0.75rem; }
+      .alumni-stats { gap: 2rem; }
+    }
+
+    /* decorative rings */
+    .deco-ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid;
+      opacity: 0.08;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* ── SECTIONS ──────────────────────────────────────── */
+    section {
+      padding: 7rem 2rem;
+      position: relative;
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .section-label::after {
+      content: ''; display: block; height: 1px; flex: 1;
+      background: linear-gradient(to right, var(--gold), transparent);
+      opacity: 0.4;
+    }
+
+    .section-title {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 400;
+      line-height: 1.1;
+      color: var(--cream);
+      margin-bottom: 2.5rem;
+    }
+
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+      opacity: 0.2;
+      margin: 0;
+    }
+
+    /* ── ABOUT ─────────────────────────────────────────── */
+    #about { background: linear-gradient(180deg, var(--plum) 0%, var(--midnight) 100%); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .about-text p {
+      font-size: 1.25rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--cream);
+      opacity: 0.9;
+      margin-bottom: 1.5rem;
+    }
+    .about-text p:first-of-type { font-size: 1.5rem; font-style: italic; color: var(--lavender); }
+
+    .about-pillars {
+      display: flex; flex-direction: column; gap: 1.5rem;
+    }
+    .pillar {
+      padding: 1.75rem;
+      border: 1px solid rgba(201,168,76,0.2);
+      background: rgba(255,255,255,0.02);
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s;
+    }
+    .pillar::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(to right, var(--gold), var(--blush), var(--lavender));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+    .pillar:hover { border-color: rgba(201,168,76,0.4); }
+    .pillar:hover::before { transform: scaleX(1); }
+    .pillar-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .pillar h3 {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+    .pillar p {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.6;
+      color: var(--lavender);
+    }
+
+    /* ── LINEUP ────────────────────────────────────────── */
+    #lineup {
+      background: linear-gradient(180deg, var(--midnight) 0%, var(--violet) 50%, var(--midnight) 100%);
+    }
+    .lineup-intro {
+      font-size: 1.2rem;
+      font-style: italic;
+      color: var(--lavender);
+      max-width: 600px;
+      line-height: 1.7;
+      margin-bottom: 4rem;
+    }
+
+    .lineup-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .performer-card {
+      position: relative;
+      padding: 2.5rem 2rem;
+      border: 1px solid rgba(196,174,232,0.15);
+      background: linear-gradient(135deg, rgba(46,23,96,0.4), rgba(22,10,42,0.6));
+      overflow: hidden;
+      transition: transform 0.3s, border-color 0.3s;
+      cursor: default;
+    }
+    .performer-card::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(circle at 50% 0%, rgba(240,176,200,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .performer-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(196,174,232,0.4);
+    }
+    .performer-tag {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--blush);
+      margin-bottom: 0.75rem;
+    }
+    .performer-name {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 1.1rem;
+      color: var(--cream);
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+    .performer-desc {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--lavender);
+      line-height: 1.5;
+    }
+    .performer-glyph {
+      position: absolute; bottom: 1rem; right: 1.25rem;
+      font-size: 2rem; opacity: 0.08;
+    }
+
+    .lineup-cta {
+      text-align: center;
+      margin-top: 4rem;
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--lavender);
+    }
+    .lineup-cta span { color: var(--gold); }
+
+    /* ── MULTIMEDIA ────────────────────────────────────── */
+    #multimedia { background: linear-gradient(180deg, var(--violet) 0%, var(--midnight) 100%); }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+    .gallery-item {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      border: 1px solid rgba(201,168,76,0.2);
+      cursor: pointer;
+    }
+    .gallery-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease, filter 0.5s ease;
+      filter: saturate(0.9);
+    }
+    .gallery-item:hover img {
+      transform: scale(1.08);
+      filter: saturate(1.05);
+    }
+    .gallery-item::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 60%, rgba(22,10,42,0.55) 100%);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .gallery-caption {
+      position: absolute; left: 0; right: 0; bottom: 0;
+      z-index: 2;
+      padding: 0.7rem 0.85rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold-lt);
+      pointer-events: none;
+    }
+
+    .gallery-lightbox {
+      position: fixed; inset: 0; z-index: 200;
+      background: rgba(13,6,24,0.95);
+      display: none;
+      align-items: center; justify-content: center;
+      padding: 3rem 2rem;
+    }
+    .gallery-lightbox.open { display: flex; }
+    .gallery-lightbox img {
+      max-width: 100%; max-height: 100%;
+      box-shadow: 0 32px 90px rgba(0,0,0,0.7), 0 0 0 1px rgba(201,168,76,0.25);
+    }
+    .gallery-lightbox-close {
+      position: absolute; top: 1.5rem; right: 2rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold); background: none; border: 1px solid var(--gold);
+      padding: 0.6rem 1.3rem; cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ── PODCAST ───────────────────────────────────────── */
+    #podcast {
+      background: linear-gradient(180deg, var(--midnight) 0%, var(--violet) 60%, var(--midnight) 100%);
+      text-align: center;
+    }
+    #podcast .section-label { justify-content: center; }
+    #podcast .section-label::after { display: none; }
+    #podcast .section-label::before {
+      content: ''; display: block; height: 1px; flex: 1;
+      background: linear-gradient(to left, var(--gold), transparent);
+      opacity: 0.4;
+    }
+    #podcast .section-title { text-align: center; }
+    #podcast .lineup-intro { margin-left: auto; margin-right: auto; text-align: center; }
+
+    .podcast-frame {
+      display: inline-block; position: relative; margin: 1.5rem 0 2.5rem;
+      width: 260px; max-width: 60vw;
+    }
+    .podcast-glow {
+      position: absolute; inset: -30px; border-radius: 20px; pointer-events: none;
+      background: radial-gradient(ellipse at 50% 40%, rgba(201,168,76,0.18) 0%, transparent 70%);
+    }
+    .podcast-thumb {
+      display: block; width: 100%; height: auto;
+      border-radius: 8px;
+      box-shadow: 0 32px 90px rgba(0,0,0,0.65), 0 0 0 1px rgba(201,168,76,0.20);
+      position: relative; z-index: 1;
+    }
+
+    /* ── TICKETS ───────────────────────────────────────── */
+    #tickets {
+      background: linear-gradient(180deg, var(--midnight) 0%, var(--plum) 100%);
+    }
+    .tickets-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .ticket-info p {
+      font-size: 1.15rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--lavender);
+      margin-bottom: 1rem;
+    }
+
+    .ticket-tiers {
+      display: flex; flex-direction: column; gap: 1rem;
+    }
+    .tier {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      border: 1px solid rgba(201,168,76,0.2);
+      background: rgba(255,255,255,0.02);
+      transition: all 0.3s;
+    }
+    .tier:hover {
+      border-color: rgba(201,168,76,0.5);
+      background: rgba(201,168,76,0.05);
+    }
+    .tier-name {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 0.85rem;
+      color: var(--cream);
+      margin-bottom: 0.25rem;
+    }
+    .tier-desc {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--lavender);
+    }
+    .tier-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.75rem;
+      font-weight: 300;
+      color: var(--gold);
+      white-space: nowrap;
+    }
+
+    .btn-tickets {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 1.1rem 3.5rem;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--blush) 100%);
+      color: var(--plum);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-weight: 500;
+      transition: opacity 0.3s, transform 0.3s;
+    }
+    .btn-tickets:hover { opacity: 0.85; transform: translateY(-2px); }
+
+    /* ── NEWSLETTER / CONTACT ──────────────────────────── */
+    #contact {
+      background: linear-gradient(180deg, var(--plum) 0%, #0d0618 100%);
+      text-align: center;
+    }
+    #contact .section-label { justify-content: center; }
+    #contact .section-label::after { display: none; }
+    #contact .section-label::before {
+      content: ''; display: block; height: 1px; flex: 1;
+      background: linear-gradient(to left, var(--gold), transparent);
+      opacity: 0.4;
+    }
+    #contact .section-title { text-align: center; }
+
+    .contact-sub {
+      font-size: 1.2rem;
+      font-style: italic;
+      color: var(--lavender);
+      max-width: 480px;
+      margin: 0 auto 3rem;
+      line-height: 1.7;
+    }
+
+    .newsletter-form {
+      display: flex;
+      max-width: 500px;
+      margin: 0 auto 3rem;
+      border: 1px solid rgba(201,168,76,0.3);
+    }
+    .newsletter-form input {
+      flex: 1;
+      padding: 1rem 1.5rem;
+      background: rgba(255,255,255,0.04);
+      border: none;
+      color: var(--cream);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      outline: none;
+    }
+    .newsletter-form input::placeholder { color: rgba(245,240,234,0.3); font-style: italic; }
+    .newsletter-form button {
+      padding: 1rem 2rem;
+      background: var(--gold);
+      border: none;
+      color: var(--plum);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: opacity 0.3s;
+      font-weight: 500;
+    }
+    .newsletter-form button:hover { opacity: 0.85; }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+    .contact-link {
+      display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
+      text-decoration: none;
+      transition: transform 0.3s;
+    }
+    .contact-link:hover { transform: translateY(-3px); }
+    .contact-link-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .contact-link-val {
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--lavender);
+    }
+
+    /* ── FOOTER ────────────────────────────────────────── */
+    footer {
+      background: #0d0618;
+      padding: 3rem 2rem;
+      text-align: center;
+      border-top: 1px solid rgba(201,168,76,0.1);
+    }
+    .footer-logo {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 1.1rem;
+      color: var(--gold);
+      opacity: 0.7;
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+    }
+    .footer-copy {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--lavender);
+      opacity: 0.4;
+    }
+
+    /* ── FOUNDER ───────────────────────────────────────── */
+    #founder { background: linear-gradient(180deg, var(--midnight) 0%, var(--violet) 100%); }
+    .founder-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .founder-photo { position: relative; }
+    .founder-photo img {
+      width: 100%; max-width: 420px; border-radius: 4px; display: block;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(201,168,76,0.2);
+    }
+    .founder-photo::before {
+      content: '';
+      position: absolute; top: 1.5rem; left: 1.5rem; right: -1.5rem; bottom: -1.5rem;
+      border: 1px solid rgba(201,168,76,0.3); border-radius: 4px; pointer-events: none;
+    }
+    .founder-text p {
+      font-size: 1.2rem; font-weight: 300; line-height: 1.8;
+      color: var(--cream); opacity: 0.9; margin-bottom: 1.5rem;
+    }
+    .founder-quote {
+      font-size: clamp(1.3rem, 2.5vw, 1.8rem); font-style: italic;
+      color: var(--lavender); line-height: 1.5;
+      margin: 2rem 0; padding-left: 1.5rem;
+      border-left: 2px solid var(--gold);
+    }
+
+    /* ── MOBILE ────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.5rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .founder-wrap { grid-template-columns: 1fr; gap: 3rem; }
+      .founder-photo::before { display: none; }
+      .tickets-wrap { grid-template-columns: 1fr; }
+      .newsletter-form { flex-direction: column; }
+      .newsletter-form button { padding: 1rem; }
+      section { padding: 5rem 1.5rem; }
+    }
+  
+  /* ─── VENUE PARTNERS ─────────────────────── */
+  #venues { background: linear-gradient(180deg, var(--midnight) 0%, #1a0d3a 100%); }
+  .venues-intro {
+    font-size: clamp(1rem, 1.8vw, 1.2rem);
+    color: var(--lavender);
+    max-width: 560px;
+    line-height: 1.75;
+    margin: 0 auto 4rem;
+    text-align: center;
+  }
+  .venues-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+  .venue-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    border: 1px solid rgba(201,168,76,0.15);
+    padding: 2.5rem 1.5rem;
+    transition: border-color 0.3s;
+  }
+  .venue-card:hover { border-color: rgba(201,168,76,0.4); }
+  .venue-logo-wrap {
+    width: 160px;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .venue-logo-light { background: #fff; }
+  .venue-logo-dark  { background: #000; }
+  .venue-logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 0.75rem;
+  }
+  .venue-info { text-align: center; }
+  .venue-name {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+    margin-bottom: 0.4rem;
+  }
+  .venue-city {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--lavender);
+    margin-bottom: 0.6rem;
+  }
+  .venue-handle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    color: var(--blush);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .venue-handle:hover { color: var(--gold); }
+  .venues-cta {
+    text-align: center;
+    border-top: 1px solid rgba(201,168,76,0.15);
+    padding-top: 3rem;
+  }
+  .venues-cta-text {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+    font-style: italic;
+    color: var(--cream);
+    margin-bottom: 1.5rem;
+  }
+  .btn-venue-cta {
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--midnight);
+    background: var(--gold);
+    padding: 1rem 2.5rem;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+  }
+  .btn-venue-cta:hover { background: var(--gold-lt); }
+  @media (max-width: 768px) {
+    .venues-grid { grid-template-columns: 1fr; max-width: 320px; margin-left: auto; margin-right: auto; }
+  }
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html#hero" class="nav-logo">W.O.S.</a>
+  <ul class="nav-links">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#upcoming">Upcoming</a></li>
+    <li><a href="index.html#alumni">Past Performers</a></li>
+    <li><a href="index.html#multimedia">Multimedia</a></li>
+    <li><a href="index.html#podcast">Podcast</a></li>
+    <li><a href="index.html#tickets">Tickets</a></li>
+    <li><a href="index.html#venues">Venues</a></li>
+    <li><a href="index.html#participants">Participants</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+
+  <!-- stars -->
+  <div class="stars" id="stars"></div>
+
+  <!-- decorative rings -->
+  <div class="deco-ring" style="width:600px;height:600px;top:50%;left:50%;transform:translate(-50%,-50%);border-color:var(--gold);"></div>
+  <div class="deco-ring" style="width:800px;height:800px;top:50%;left:50%;transform:translate(-50%,-50%);border-color:var(--lavender);"></div>
+  <div class="deco-ring" style="width:1050px;height:1050px;top:50%;left:50%;transform:translate(-50%,-50%);border-color:var(--blush);"></div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">Monthly Editions · 6 Countries · Founded 2025</div>
+    <h1>WOMXN<br>ON STAGE</h1>
+    <p class="hero-tagline">Sing it. Paint it. Pitch it. Own it.</p>
+    <div class="hero-countries">
+      <span class="hero-country">🇨🇭 Switzerland</span>
+      <span class="hero-country-sep">·</span>
+      <span class="hero-country">🇲🇽 Mexico</span>
+      <span class="hero-country-sep">·</span>
+      <span class="hero-country">🇦🇷 Argentina</span>
+      <span class="hero-country-sep">·</span>
+      <span class="hero-country">🇮🇩 Indonesia</span>
+      <span class="hero-country-sep">·</span>
+      <span class="hero-country">🇲🇾 Malaysia</span>
+      <span class="hero-country-sep">·</span>
+      <span class="hero-country">🇹🇭 Thailand</span>
+    </div>
+    <a href="index.html#tickets" class="btn-primary">Get Your Ticket</a>
+  </div>
+
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="section-label">Our Story</div>
+        <h2 class="section-title">Built for<br>Every Stage</h2>
+        <p>Womxn on Stage connects, celebrates, and supports womxn artists and entrepreneurs worldwide. We create organic networking spaces where creatives can grow their visibility, unlock business opportunities, and receive direct feedback on their ideas and portfolios.</p>
+        <p>In an age of increasing digital isolation, we foster real-life community, collaboration, and meaningful connections. We use "womxn" to intentionally include cis women, trans women, and non-binary people. All genders are welcome.</p>
+        <p>Founded by Annabel Personeni — singer-songwriter, entrepreneur, and world traveller with a ukulele — from the stage of Ekstase, Zurich.</p>
+      </div>
+      <div class="about-pillars">
+        <div class="pillar">
+          <div class="pillar-icon">✦</div>
+          <h3>Helping Others</h3>
+          <p>We rise by lifting each other. Every stage we build creates the next one.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">✦</div>
+          <h3>Open-Mindedness</h3>
+          <p>Diverse voices and perspectives are welcomed and respected — always.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">✦</div>
+          <h3>Synergy</h3>
+          <p>Collaboration over competition. We create networking spaces that actually work.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">✦</div>
+          <h3>Real Community</h3>
+          <p>In an age of digital isolation, we show up in person — and that changes everything.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FOUNDER -->
+<section id="founder">
+  <div class="section-inner">
+    <div class="founder-wrap">
+      <div class="founder-photo">
+        <img src="annabel.jpg" alt="Annabel Personeni — Founder of WOMXN ON STAGE" />
+      </div>
+      <div class="founder-text">
+        <div class="section-label">The Founder</div>
+        <h2 class="section-title">Annabel<br>Personeni</h2>
+        <p>Singer-songwriter, entrepreneur, and world traveller with a ukulele. Annabel has performed original music across the globe and built creative communities along the way.</p>
+        <p>Inspired by her experiences on stage, she founded Womxn on Stage to celebrate artists, painters, and entrepreneurs who dare to bring their vision into the world.</p>
+        <blockquote class="founder-quote">"Collaboration over competition. Synergy over ego."</blockquote>
+        <a href="pitch-deck.pdf" class="btn-download" download="WOMXN ON STAGE Pitch Deck 2026.pdf">Download Our Pitch Deck ↓</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- UPCOMING -->
+<section id="upcoming">
+  <div class="section-inner">
+    <div class="section-label">Where We're Going Next</div>
+    <h2 class="section-title">Next<br>Editions</h2>
+
+    <div class="upcoming-grid">
+
+      <!-- Ed. 14 — Nusa Lembongan -->
+      <div class="upcoming-card featured">
+        <span class="upcoming-badge free">Free Entry</span>
+        <div class="upcoming-flag">🇮🇩</div>
+        <div class="upcoming-edition">Ed. 14 · Next Up</div>
+        <div class="upcoming-city">Nusa Lembongan</div>
+        <div class="upcoming-country">Indonesia</div>
+        <div class="upcoming-date">Sunday, June 28, 2026</div>
+        <div class="upcoming-time">19:00</div>
+        <a class="upcoming-venue" href="https://www.instagram.com/myshizaru" target="_blank" rel="noopener" style="text-decoration:none;">@myshizaru · Shizaru Yoga Studio</a>
+        <img src="wos-logo.jpg" class="upcoming-logo" alt="WOS logo" />
+      </div>
+
+      <!-- Bangkok — Surprise Ed. 15 -->
+      <div class="upcoming-card surprise">
+        <span class="upcoming-badge mystery">Surprise Edition</span>
+        <span class="upcoming-badge free">Free Entry · Donation Based</span>
+        <div class="upcoming-flag">🇹🇭</div>
+        <div class="upcoming-edition">Ed. 15</div>
+        <div class="upcoming-city">Bangkok</div>
+        <div class="upcoming-country">Thailand</div>
+        <div class="upcoming-date">Thursday, 16 July 2026</div>
+        <div class="upcoming-time">19:00</div>
+        <a class="upcoming-venue" href="https://www.instagram.com/arthouse.latphrao" target="_blank" rel="noopener" style="text-decoration:none;">@arthouse.latphrao · Art House Lat Phrao</a>
+        <img src="wos-logo.jpg" class="upcoming-logo" alt="WOS logo" />
+      </div>
+
+      <!-- Ed. 16 — Kuala Lumpur -->
+      <div class="upcoming-card">
+        <div class="upcoming-flag">🇲🇾</div>
+        <div class="upcoming-edition">Ed. 16</div>
+        <div class="upcoming-city">Kuala Lumpur</div>
+        <div class="upcoming-country">Malaysia</div>
+        <div class="upcoming-date">Saturday, 1 August 2026</div>
+        <div class="upcoming-time">20:30</div>
+        <a class="upcoming-venue" href="https://www.instagram.com/bobokl" target="_blank" rel="noopener" style="text-decoration:none;">@bobokl · Bobo KL</a>
+        <img src="wos-logo.jpg" class="upcoming-logo" alt="WOS logo" />
+      </div>
+
+      <!-- Zurich — HOMECOMING Ed. 17 -->
+      <div class="upcoming-card featured">
+        <span class="upcoming-badge">Homecoming</span>
+        <div class="upcoming-flag">🇨🇭</div>
+        <div class="upcoming-edition">Ed. 17 · Homecoming</div>
+        <div class="upcoming-city">Zurich</div>
+        <div class="upcoming-country">Switzerland</div>
+        <div class="upcoming-date">Saturday, 29 August 2026</div>
+        <div class="upcoming-time">20:00</div>
+        <a class="upcoming-venue" href="https://www.instagram.com/ekstase_zuerich" target="_blank" rel="noopener" style="text-decoration:none;">@ekstase · Kanzleistrasse 78</a>
+        <img src="wos-logo.jpg" class="upcoming-logo" alt="WOS logo" />
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ALUMNI / PAST PERFORMERS -->
+<section id="alumni">
+  <div class="section-inner">
+    <div class="section-label">Every Name That Has Graced Our Stage</div>
+    <h2 class="section-title">Past<br>Performers</h2>
+
+    <div class="alumni-stats">
+      <div class="stat">
+        <span class="stat-num">15</span>
+        <span class="stat-label">Editions</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">6</span>
+        <span class="stat-label">Countries</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">60+</span>
+        <span class="stat-label">Attendees per event</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">60+</span>
+        <span class="stat-label">Artists, Entrepreneurs &amp; Painters</span>
+      </div>
+    </div>
+
+    <div class="filter-row">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="zurich">🇨🇭 Zurich</button>
+      <button class="filter-btn" data-filter="mexico">🇲🇽 Mexico</button>
+      <button class="filter-btn" data-filter="argentina">🇦🇷 Argentina</button>
+      <button class="filter-btn" data-filter="indonesia">🇮🇩 Indonesia</button>
+      <button class="filter-btn" data-filter="thailand">🇹🇭 Thailand</button>
+    </div>
+
+    <div class="chip-legend">
+      <span class="legend-item"><span class="legend-dot music"></span>Musician</span>
+      <span class="legend-item"><span class="legend-dot entrepreneur"></span>Entrepreneur</span>
+      <span class="legend-item"><span class="legend-dot artist"></span>Painter / Visual Artist</span>
+      <span class="legend-item"><span class="legend-dot dancer"></span>Dancer</span>
+    </div>
+
+    <div class="editions-list">
+
+      <!-- Ed 01 -->
+      <div class="edition" data-location="zurich">
+        <div class="edition-meta">
+          <span class="edition-num">Ed. 01</span>
+          <span class="edition-date">June 20, 2025</span>
+          <span class="edition-venue">Ekstase, Zurich</span>
+        </div>
+        <div class="performers-row">
+          <a class="p-chip music" href="https://www.instagram.com/jane_in_flames" target="_blank" rel="noopener">Jane in Flames</a>
+          <a class="p-chip music" href="https://www.instagram.com/lustenbergerlea" target="_blank" rel="noopener">Lea Lustenberger</a>
+          <a class="p-chip music" href="https://www.instagram.com/reginabrury" target="_blank" rel="noopener">Regina Brury</a>
+          <a class="p-chip music" href="https://www.instagram.com/thea.sofia.13" target="_blank" rel="noopener">Thea Sofia</a>
+          <a class="p-chip entrepreneur" href="https://www.instagram.com/xova.ch" target="_blank" rel="noopener">XOVA</a>
+        </div>
+      </div>
+
+      <!-- Ed 02 -->
+      <div class="edition" data-location="zurich">
+        <div class="edition-meta">
+          <span class="edition-num">Ed. 02</span>
+          <span class="edition-date">July 10, 2025</span>
+          <span class="edition-venue">Ekstase, Zurich</span>
+        </div>
+        <div class="performers-row">
+          <a class="p-chip music" href="https://www.instagram.com/sissi_sings" target="_blank" rel="noopener">Sissi</a>
+          <a class="p-chip music" href="https://www.instagram.com/shilpaananth" target="_blank" rel="noopener">Shilpa Ananth</a>
+          <a class="p-chip music" href="https://www.instagram.com/janetaudien" target="_blank" rel="noopener">Jane Taudien</a>
+          <a class="p-chip music" href="https://www.instagram.com/elisabetta.previati" target="_blank" rel="noopener">Elisabetta Previati</a>
+          <a class="p-chip music" href="https://www.instagram.com/vivianenuescheler" target="_blank" rel="noopener">Viviane Nuscheler</a>
+          <a class="p-chip entrepreneur" href="https://www.instagram.com/xova.ch" target="_blank" rel="noopener">XOVA</a>
+        </div>
+      </div>
+
+      <!-- Ed 03 -->
+      <div class="edition" data-location="zurich">
+        <div class="edition-meta">
+          <span class="edition-num">Ed. 03</span>
+          <span class="edition-date">August 15, 2025</span>
+          <span class="edition-venue">Ekstase, Zurich</span>
+        </div>
+        <div class="performers-row">
+          <a class="p-chip music" href="https://www.instagram.com/mujazz.ch" target="_blank" rel="noopener">Sarah Singer &amp; Jieun Choi</a>
+          <a class="p-chip music" href="https://www.instagram.com/oliviaauroramusic" target="_blank" rel="noopener">Olivia Aurora</a>
+          <a class="p-chip music" href="https://www.instagram.com/jialu_qin_" target="_blank" rel="noopener">Mahi</a>
+          <a class="p-chip music" href="https://www.instagram.com/purnama.world" target="_blank" rel="noopener">Purnama</a>
+          <a class="p-chip entrepreneur" href="https://www.instagram.com/xova.ch" target="_blank" rel="noopener">XOVA</a>
+        </div>
+      </div>
+
+      <!-- Ed 04 -->
+      <div class="edition" data-location="zurich">
+        <div class="edition-meta">
+          <span class="edition-num">Ed. 04</span>
+          <span class="edition-date">September 26, 2025</span>
+          <span class="edition-venue">Ekstase, Zurich</span>
+        </div>
+        <div class="performers-row">
+          <a class="p-chip music" href="https://www.instagram.com/soe.blue" target="_blank" rel="noopener">Soe Blue</a>
+          <a class="p-chip music" href="https://www.instagram.com/zoeychanzinger" target="_blank" rel="noopener">Zoe</a>
+          <a class="p-chip music" href="https://www.instagram.com/juliebridgee" target="_blank" rel="noopener">Julie Bridge</a>
+          <a class="p-chip music" href="https://www.instagram.com/chiaradubey" target="_blank" rel="noopener">Chiara</a>
+          <a class="p-chip entrepreneur" href="https://www.instagram.com/xova.ch" target="_blank" rel="noopener">XOVA</a>
+        </div>
+      </div>
+
+      <!-- Ed 05 -->
+      <div class="edition" data-location="zurich">
+        <div class="edition-meta">
+          <span class="edition-num">Ed. 05</span>
+          <span class="edition-date">October 24, 2025</span>
+          <span class="edition-venue">Ekstase, Zurich</span>
+        </div>
+        <div class="performers-row">
+          <a class="p-chip music" href="https://www.instagram.com/tigerbaum_" target="_blank" rel="noopener">Tigerbaum</a>
+          <a class="p-chip music" href="https://www.instagram.com/antto_logy" target="_blank" rel="noopener">Antartik</a>
+          <a class="p-chip music" href="https://www.instagram.com/scar.lettofficial" target="_blank" rel="noopener">Scarlett</a>
+          <a class="p-chip music" href="https://www.instagram.com/seraina_musica" target="_blank" rel="noopener">Seraina</a>
+          <a class="p-chip entrepreneur" href="https://www.instagram.com/xova.ch" target="_blank" rel="noopener">XOVA</a>
+        </div>
+      </div>
+
+      <!-- Ed 06 -->
+      <div class="edition" data-location="zurich">
+        <div class="edition-meta">
+          <span class="edition-num">Ed. 06</span>
+          <span class="edition-date">November 14, 2025</span>
+          <span class="edition-venue">Ekstase, Zurich</span>
+        </div>
+        <div class="performers-row">
+          <a class="p-chip music" href="https://www.instagram.com/thisisoscen" target="_blank" rel="noopener">Oscen</a>
+          <a class="p-chip music" href="https://www.instagram.com/alessasmusic" target="_blank" rel="noopener">Alessa</a>
+          <a class="p-chip music" href="https://www.instagram.com/saynspace" target="_blank" rel="noopener">Sayn</a>
+          <a class="p-chip entrepreneur" href="https://www.instagram.com/xova.ch" target="_blank" rel="noopener">XOVA</a>
+        </div>
+      </div>
+
+      <!-- Ed 07 -->
+      <div class="edition" data-location="zurich">
+        <div class="edition-meta">
+          <span class="edition-num">Ed. 07</span>
+          <span class="edition-date">December 6, 2025</span>
+          <span class="edition-venue">Ekstase, Zurich</span>
+        </div>
+        <div class="performers-row">
+          <a class="p-chip music" href="https://www.instagram.com/sheismanemusic" target="_blank" rel="noopener">Mane</a>
+          <a class="p-chip music" href="https://www.instagram.com/touching_your_soul_24" target="_blank" rel="noopener">Touching Your Soul</a>
+          <a class="p-chip music" href="https://www.instagram.com/zizamusic" target="_blank" rel="noopener">Ziza</a>
+          <a class="p-chip music" href="https://www.instagram.com/clothos_" target="_blank" rel="noopener">Clothilde Teillou</a>
+          <a class="p-chip entrepreneur" href="https://www.instagram.com/eatlentl" target="_blank" rel="noopener">Lentl</a>
+          <a class="p-chip artist" href="https://www.instagram.com/eve____art" target="_blank" rel="noopener">Eveline Derron</a>
+        </div>
+      </div>
+
+      <!-- Ed 08 -->
+      <div class="edition" data-location="zurich">
+        <div class="edition-meta">
+          <span class="edition-num">Ed. 08</span>
+          <span class="edition-date">January 24, 2026</span>
+          <span class="edition-venue">Ekstase, Zurich</span>
+        </div>
+        <div class="performers-row">
+          <a class="p-chip music" href="https://www.instagram.com/sharas_way" target="_blank" rel="noopener">Shara</a>
+          <a class="p-chip music" href="https://www.instagram.com/ezgi_berberoglu" target="_blank" rel="noopener">Ezgi</a>
+          <a class="p-chip music" href="https://www.instagram.com/ulkucanc" target="_blank" rel="noopener">Ulku</a>
+          <a class="p-chip music" href="https://www.instagram.com/annabelpersoneni" target="_blank" rel="noopener">Mariachibell</a>
+          <a class="p-chip entrepreneur" href="https://www.instagram.com/eatlentl" target="_blank" rel="noopener">Lentl</a>
+          <a class="p-chip artist" href="https://www.instagram.com/kryshnia_art" target="_blank" rel="noopener">Irina Kryshnia</a>
+        </div>
+      </div>
+
+      <!-- Ed 09 -->
+      <div class="edition" data-location="zurich">
+        <div class="edition-meta">
+          <span class="edition-num">Ed. 09</span>
+          <span class="edition-date">February 21, 2026</span>
+          <span class="edition-venue">Ekstase, Zurich</span>
+        </div>
+        <div class="performers-row">
+          <a class="p-chip music" href="https://www.instagram.com/bara_guitar" target="_blank" rel="noopener">Bara · Las Melos</a>
+          <a class="p-chip music" href="https://www.instagram.com/tamynogu" target="_blank" rel="noopener">Tamy · Las Melos</a>
+          <a class="p-chip music" href="https://www.instagram.com/anoka.lajau" target="_blank" rel="noopener">Anoka Lajau</a>
+          <a class="p-chip music" href="https://www.instagram.com/rozanazarcomedy" target="_blank" rel="noopener">Rozana Zar</a>
+          <a class="p-chip music" href="https://www.instagram.com/annabelpersoneni" target="_blank" rel="noopener">Annabel</a>
+          <a class="p-chip artist" href="https://www.instagram.com/hkm_artspace" target="_blank" rel="noopener">Hanna Karina Muller</a>
+        </div>
+      </div>
+
+      <!-- Ed 10 -->
+      <div class="edition" data-location="zurich">
+        <div class="edition-meta">
+          <span class="edition-num">Ed. 10</span>
+          <span class="edition-date">March 26, 2026</span>
+          <span class="edition-venue">Ekstase, Zurich</span>
+        </div>
+        <div class="performers-row">
+          <a class="p-chip music" href="https://www.instagram.com/mixedflames" target="_blank" rel="noopener">Mixed Flames</a>
+          <a class="p-chip music" href="https://www.instagram.com/elisabetta.previati" target="_blank" rel="noopener">Elisabetta Previati</a>
+          <a class="p-chip music" href="https://www.instagram.com/annabelpersoneni" target="_blank" rel="noopener">Annabel</a>
+          <a class="p-chip entrepreneur" href="https://www.instagram.com/artena.studios" target="_blank" rel="noopener">Nina &amp; Annaleah · Artena</a>
+          <a class="p-chip artist" href="https://www.instagram.com/hkm_artspace" target="_blank" rel="noopener">Hanna Karina Muller</a>
+        </div>
+      </div>
+
+      <!-- Ed 11 — Guadalajara -->
+      <div class="edition" data-location="mexico">
+        <div class="edition-meta">
+          <span class="edition-num">Ed. 11</span>
+          <span class="edition-date">May 8, 2026</span>
+          <span class="edition-venue">Casa Alcalde, Guadalajara 🇲🇽</span>
+        </div>
+        <div class="performers-row">
+          <a class="p-chip music" href="https://www.instagram.com/ainka_oficial" target="_blank" rel="noopener">Ainka</a>
+          <a class="p-chip music" href="https://www.instagram.com/las.coronelass" target="_blank" rel="noopener">Las Coronelas</a>
+          <a class="p-chip music" href="https://www.instagram.com/flor__canelaa__" target="_blank" rel="noopener">Flor Canela</a>
+          <a class="p-chip music" href="https://www.instagram.com/annabelpersoneni" target="_blank" rel="noopener">Annabel</a>
+          <a class="p-chip artist" href="https://www.instagram.com/andrea_realidadilustrada" target="_blank" rel="noopener">Andrea</a>
+        </div>
+      </div>
+
+      <!-- Ed 12 — Buenos Aires -->
+      <div class="edition" data-location="argentina">
+        <div class="edition-meta">
+          <span class="edition-num">Ed. 12</span>
+          <span class="edition-date">May 25, 2026</span>
+          <span class="edition-venue">Casa Arias, Buenos Aires 🇦🇷</span>
+        </div>
+        <div class="performers-row">
+          <a class="p-chip music" href="https://www.instagram.com/rominadavilaoficial" target="_blank" rel="noopener">Romina Dávila</a>
+          <a class="p-chip music" href="https://www.instagram.com/laura_enpiano" target="_blank" rel="noopener">María Laura Reta</a>
+          <a class="p-chip music" href="https://www.instagram.com/luz.matas" target="_blank" rel="noopener">Luz Matas</a>
+          <a class="p-chip music" href="https://www.instagram.com/annabelpersoneni" target="_blank" rel="noopener">Annabel</a>
+          <a class="p-chip entrepreneur" href="https://www.instagram.com/lucrenicolosi_" target="_blank" rel="noopener">Lucrecia</a>
+          <a class="p-chip entrepreneur" href="https://www.instagram.com/darshansatyakaur" target="_blank" rel="noopener">Darshan</a>
+          <a class="p-chip artist" href="https://www.instagram.com/moni.a.aguero" target="_blank" rel="noopener">Moni</a>
+        </div>
+      </div>
+
+      <!-- Ed 13 — 1 Year Anniversary -->
+      <div class="edition" data-location="zurich">
+        <div class="edition-meta">
+          <span class="edition-num">Ed. 13 ✦</span>
+          <span class="edition-date">June 5, 2026 · 1 Year Anniversary</span>
+          <span class="edition-venue">Ekstase, Zurich</span>
+        </div>
+        <div class="performers-row">
+          <a class="p-chip music" href="https://www.instagram.com/annabelpersoneni" target="_blank" rel="noopener">Annabel</a>
+          <a class="p-chip music" href="https://www.instagram.com/sissi_sings" target="_blank" rel="noopener">Sissi</a>
+          <a class="p-chip music" href="https://www.instagram.com/elisabetta.previati" target="_blank" rel="noopener">Elisabetta Previati</a>
+          <a class="p-chip entrepreneur" href="https://www.instagram.com/finefolkzurich" target="_blank" rel="noopener">Sara Bellamy</a>
+          <a class="p-chip entrepreneur" href="https://www.instagram.com/rozanazarcomedy" target="_blank" rel="noopener">Rozana Zar</a>
+          <a class="p-chip entrepreneur" href="https://www.instagram.com/xova.ch" target="_blank" rel="noopener">XOVA</a>
+          <a class="p-chip entrepreneur" href="https://www.instagram.com/karmi.purpose" target="_blank" rel="noopener">Diana</a>
+          <a class="p-chip entrepreneur" href="https://www.instagram.com/toqapu_studio" target="_blank" rel="noopener">Isabel</a>
+        </div>
+      </div>
+
+
+      <!-- Ed 14 — Lembongan -->
+      <div class="edition" data-location="indonesia">
+        <div class="edition-meta">
+          <span class="edition-num">Ed. 14</span>
+          <span class="edition-date">June 28, 2026</span>
+          <span class="edition-venue">Shizaru, Nusa Lembongan 🇮🇩</span>
+        </div>
+        <div class="performers-row">
+          <a class="p-chip music" href="https://www.instagram.com/annabelpersoneni" target="_blank" rel="noopener">Annabel</a>
+          <a class="p-chip music" href="https://www.instagram.com/danielagrc_16" target="_blank" rel="noopener">Daniela Grace</a>
+          <a class="p-chip music" href="https://www.instagram.com/stmg_roma" target="_blank" rel="noopener">Rida</a>
+          <a class="p-chip entrepreneur" href="https://www.instagram.com/nydia.laysa.stone" target="_blank" rel="noopener">Nydia</a>
+        </div>
+      </div>
+
+      <!-- Ed 15 — Bangkok -->
+      <div class="edition" data-location="thailand">
+        <div class="edition-meta">
+          <span class="edition-num">Ed. 15</span>
+          <span class="edition-date">July 16, 2026</span>
+          <span class="edition-venue">Art House Lat Phrao, Bangkok 🇹🇭</span>
+        </div>
+        <div class="performers-row">
+          <a class="p-chip music" href="https://www.instagram.com/annabelpersoneni" target="_blank" rel="noopener">Annabel Personeni</a>
+          <a class="p-chip entrepreneur" href="https://www.instagram.com/tidawei" target="_blank" rel="noopener">Ador Soaps</a>
+          <a class="p-chip dancer" href="https://www.instagram.com/hannamirgo" target="_blank" rel="noopener">Hanna Mirgo</a>
+          <a class="p-chip dancer" href="https://www.instagram.com/meera_lele_" target="_blank" rel="noopener">Meera Lele</a>
+        </div>
+      </div>
+
+    </div>    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- MULTIMEDIA -->
+<section id="multimedia">
+  <div class="section-inner">
+    <div class="section-label">Moments From the Stage</div>
+    <h2 class="section-title">Multimedia</h2>
+
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="media/wos-multimedia-01.jpg" alt="Womxn on Stage — full room celebrating together at Ekstase, Zurich" loading="lazy" /><span class="gallery-caption">Ekstase, Zurich 🇨🇭</span></div>
+      <div class="gallery-item"><img src="media/wos-multimedia-02.jpg" alt="Womxn on Stage — performers backstage at Ekstase, Zurich" loading="lazy" /><span class="gallery-caption">Ekstase, Zurich 🇨🇭</span></div>
+      <div class="gallery-item"><img src="media/wos-multimedia-03.jpg" alt="Womxn on Stage — performers in velvet, ukulele in hand, at Ekstase, Zurich" loading="lazy" /><span class="gallery-caption">Ekstase, Zurich 🇨🇭</span></div>
+      <div class="gallery-item"><img src="media/wos-multimedia-04.jpg" alt="Womxn on Stage — cast holding the Womxn on Stage sign at Ekstase, Zurich" loading="lazy" /><span class="gallery-caption">Ekstase, Zurich 🇨🇭</span></div>
+      <div class="gallery-item"><img src="media/wos-multimedia-05.jpg" alt="Womxn on Stage — group portrait by the piano at Casa Arias, Buenos Aires, Argentina" loading="lazy" /><span class="gallery-caption">Casa Arias, Buenos Aires 🇦🇷</span></div>
+      <div class="gallery-item"><img src="media/wos-multimedia-06.jpg" alt="Womxn on Stage — audience and performers together at Casa Arias, Buenos Aires, Argentina" loading="lazy" /><span class="gallery-caption">Casa Arias, Buenos Aires 🇦🇷</span></div>
+      <div class="gallery-item"><img src="media/wos-multimedia-07.jpg" alt="Womxn on Stage — full house group photo at Ekstase, Zurich" loading="lazy" /><span class="gallery-caption">Ekstase, Zurich 🇨🇭</span></div>
+      <div class="gallery-item"><img src="media/wos-multimedia-08.jpg" alt="Womxn on Stage — performers by candlelight at Shizaru, Nusa Lembongan, Bali, Indonesia" loading="lazy" /><span class="gallery-caption">Shizaru, Nusa Lembongan 🇮🇩</span></div>
+      <div class="gallery-item"><img src="media/wos-multimedia-09.jpg" alt="Womxn on Stage — 1 Year Anniversary group photo at Ekstase, Zurich" loading="lazy" /><span class="gallery-caption">Ekstase, Zurich 🇨🇭</span></div>
+      <div class="gallery-item"><img src="media/wos-multimedia-10.jpg" alt="Womxn on Stage — Guadalajara edition cast at Casa Alcalde, Guadalajara, Mexico" loading="lazy" /><span class="gallery-caption">Casa Alcalde, Guadalajara 🇲🇽</span></div>
+      <div class="gallery-item"><img src="media/wos-multimedia-11.jpg" alt="Womxn on Stage — group photo at Shizaru, Nusa Lembongan, Bali, Indonesia" loading="lazy" /><span class="gallery-caption">Shizaru, Nusa Lembongan 🇮🇩</span></div>
+      <div class="gallery-item"><img src="media/wos-multimedia-12.jpg" alt="Womxn on Stage — performers lined up together under stage lights at Ekstase, Zurich" loading="lazy" /><span class="gallery-caption">Ekstase, Zurich 🇨🇭</span></div>
+      <div class="gallery-item"><img src="media/wos-multimedia-13.jpg" alt="Womxn on Stage — cast portrait in front of the starlit red curtain at Ekstase, Zurich" loading="lazy" /><span class="gallery-caption">Ekstase, Zurich 🇨🇭</span></div>
+      <div class="gallery-item"><img src="media/wos-multimedia-14.jpg" alt="Womxn on Stage — performer with ukulele and cast holding the Womxn on Stage sign at Ekstase, Zurich" loading="lazy" /><span class="gallery-caption">Ekstase, Zurich 🇨🇭</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="gallery-lightbox" id="galleryLightbox">
+  <button class="gallery-lightbox-close" id="galleryLightboxClose">Close ✕</button>
+  <img src="index.html" alt="" id="galleryLightboxImg" />
+</div>
+
+<div class="divider"></div>
+
+<!-- PODCAST -->
+<section id="podcast">
+  <div class="section-inner">
+    <div class="section-label">Stories Beyond the Stage</div>
+    <h2 class="section-title">Annabelization<br>Podcast</h2>
+    <p class="lineup-intro">Conversations with flagship artists, entrepreneurs, and painters who've graced our stage, delving on how their culture shapes their creative identity and how they connect with their audience through their work.</p>
+
+    <div class="podcast-frame">
+      <div class="podcast-glow"></div>
+      <img class="podcast-thumb" src="media/annabelization-cover.jpg" alt="Annabelization podcast cover art" loading="lazy" />
+    </div>
+
+    <a href="https://youtube.com/playlist?list=PLoz26UDD5ldVImtMQg8PEiq2LqxquUsry&si=zl_UXFmDqMoeemWP" class="btn-download" target="_blank" rel="noopener">Watch on YouTube ↗</a>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- TICKETS -->
+<section id="tickets">
+  <div class="section-inner">
+    <div class="tickets-wrap">
+      <div class="ticket-info">
+        <div class="section-label">Join Us</div>
+        <h2 class="section-title">Get<br>Your Ticket</h2>
+        <p>WOMXN ON STAGE is a ticketed event with limited capacity — because intimacy matters. Every ticket supports the artists, the space, and the next edition.</p>
+        <p>Community pricing available. Reach out if cost is a barrier.</p>
+        <a href="index.html#contact" class="btn-tickets">Secure Your Spot</a>
+      </div>
+      <div class="ticket-tiers">
+        <div class="tier">
+          <div>
+            <div class="tier-name">Community</div>
+            <div class="tier-desc">Pay-what-you-can — solidarity pricing</div>
+          </div>
+          <div class="tier-price">£—</div>
+        </div>
+        <div class="tier">
+          <div>
+            <div class="tier-name">General</div>
+            <div class="tier-desc">Full-day access to all programming</div>
+          </div>
+          <div class="tier-price">£—</div>
+        </div>
+        <div class="tier">
+          <div>
+            <div class="tier-name">Supporter</div>
+            <div class="tier-desc">Access + a little extra love from us</div>
+          </div>
+          <div class="tier-price">£—</div>
+        </div>
+        <div class="tier">
+          <div>
+            <div class="tier-name">Patron</div>
+            <div class="tier-desc">Priority access, backstage, and recognition</div>
+          </div>
+          <div class="tier-price">£—</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT / NEWSLETTER -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-label">Stay Close</div>
+    <h2 class="section-title">Stay in<br>the Circle</h2>
+    <p class="contact-sub">Be the first to hear about lineup reveals, ticket drops, workshops, and everything we're building.</p>
+
+    <a href="https://www.instagram.com/womxnonstage" class="btn-instagram" target="_blank" rel="noopener">
+      Follow @womxnonstage
+    </a>
+
+    <form class='newsletter-form' method='POST' name='newsletter' onsubmit='handleSignup(event)'>
+      <input type="hidden" name="form-name" value="newsletter" />
+      <input type="email" name="email" placeholder="your@email.com" required aria-label="Email address" />
+      <button type="submit">Join</button>
+    </form>
+
+    <div class="contact-links">
+      <a href="mailto:personeni.annabel@gmail.com" class="contact-link">
+        <span class="contact-link-label">Email</span>
+        <span class="contact-link-val">personeni.annabel@gmail.com</span>
+      </a>
+      <a href="https://instagram.com/womxnonstage" class="contact-link" target="_blank" rel="noopener">
+        <span class="contact-link-label">Instagram</span>
+        <span class="contact-link-val">@womxnonstage</span>
+      </a>
+      <a href="https://instagram.com/annabelpersoneni" class="contact-link" target="_blank" rel="noopener">
+        <span class="contact-link-label">Founder</span>
+        <span class="contact-link-val">@annabelpersoneni</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- VENUE PARTNERS -->
+<section id="venues">
+  <div class="section-inner">
+    <div class="section-label">Our Home Stages</div>
+    <h2 class="section-title">Venue<br>Partners</h2>
+    <p class="venues-intro">These incredible spaces have opened their doors to WOMXN ON STAGE and helped us build community across the world.</p>
+
+    <div class="venues-grid">
+
+      <div class="venue-card">
+        <div class="venue-logo-wrap venue-logo-light">
+          <img src="ekstase-logo_1.png" alt="Ekstase logo" class="venue-logo-img" />
+        </div>
+        <div class="venue-info">
+          <div class="venue-name">Ekstase</div>
+          <div class="venue-city">Zurich, Switzerland 🇨🇭</div>
+          <a class="venue-handle" href="https://instagram.com/ekstase.ch" target="_blank" rel="noopener">@ekstase.ch</a>
+        </div>
+      </div>
+
+      <div class="venue-card">
+        <div class="venue-logo-wrap venue-logo-light">
+          <img src="WhatsApp%20Image%202026-04-26%20at%2014.36.55.jpeg" alt="Casa Alcalde Cultural logo" class="venue-logo-img" />
+        </div>
+        <div class="venue-info">
+          <div class="venue-name">Casa Alcalde Cultural</div>
+          <div class="venue-city">Guadalajara, Mexico 🇲🇽</div>
+          <a class="venue-handle" href="https://instagram.com/casaalcaldecultural" target="_blank" rel="noopener">@casaalcaldecultural</a>
+        </div>
+      </div>
+
+      <div class="venue-card">
+        <div class="venue-logo-wrap venue-logo-dark">
+          <img src="CASA%20ARIAS%20BA.png" alt="Casa Arias logo" class="venue-logo-img" />
+        </div>
+        <div class="venue-info">
+          <div class="venue-name">Casa Arias</div>
+          <div class="venue-city">Buenos Aires, Argentina 🇦🇷</div>
+          <a class="venue-handle" href="https://instagram.com/casa.arias" target="_blank" rel="noopener">@casa.arias</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="venues-cta">
+      <p class="venues-cta-text">Want to sponsor WOMXN ON STAGE?</p>
+      <a href="mailto:personeni.annabel@gmail.com" class="btn-venue-cta">Get in Touch ↗</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- PARTICIPANT KIT -->
+<section id="participants">
+  <div class="section-inner">
+    <div class="section-label">For Performers & Creatives</div>
+    <h2 class="section-title">Participant<br>Kit</h2>
+    <p class="contact-sub">You're performing at WOMXN ON STAGE — here's everything you need to share it with your community. Bio blurbs, caption templates, hashtag sets, and story cards ready to personalise and post.</p>
+    <a class='btn-instagram' href='participant-kit.html' rel='noopener' target='_blank'>Open My Participant Kit →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">WOMXN ON STAGE</div>
+  <div class="footer-copy">&copy; 2026 Womxn On Stage. All rights reserved.</div>
+</footer>
+
+<script>
+  // Star field
+  (function () {
+    const container = document.getElementById('stars');
+    const count = 120;
+    for (let i = 0; i < count; i++) {
+      const s = document.createElement('div');
+      s.className = 'star';
+      const size = Math.random() * 2.5 + 0.5;
+      s.style.cssText = `
+        width:${size}px; height:${size}px;
+        top:${Math.random() * 100}%;
+        left:${Math.random() * 100}%;
+        --op:${(Math.random() * 0.5 + 0.1).toFixed(2)};
+        --dur:${(Math.random() * 4 + 2).toFixed(1)}s;
+        --delay:${(Math.random() * 5).toFixed(1)}s;
+      `;
+      container.appendChild(s);
+    }
+  })();
+
+  // Nav hide/show on scroll
+  (function () {
+    const nav = document.querySelector('nav');
+    let last = 0;
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      if (y > 80) {
+        nav.style.background = 'rgba(22,10,42,0.95)';
+        nav.style.backdropFilter = 'blur(12px)';
+      } else {
+        nav.style.background = 'linear-gradient(to bottom, rgba(22,10,42,0.95), transparent)';
+        nav.style.backdropFilter = 'blur(4px)';
+      }
+      last = y;
+    }, { passive: true });
+  })();
+
+  // Newsletter — submits to Netlify Forms via fetch
+  function handleSignup(e) {
+    e.preventDefault();
+    const form = e.target;
+    const btn = form.querySelector('button');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(new FormData(form)).toString()
+    })
+    .then(() => {
+      btn.textContent = 'You\'re in ✦';
+      btn.style.background = 'var(--lavender)';
+      form.querySelector('input[type="email"]').value = '';
+      setTimeout(() => {
+        btn.textContent = 'Join';
+        btn.style.background = 'var(--gold)';
+        btn.disabled = false;
+      }, 3000);
+    })
+    .catch(() => {
+      btn.textContent = 'Try again';
+      btn.disabled = false;
+    });
+  }
+
+  // Subtle parallax on hero rings
+  (function () {
+    const rings = document.querySelectorAll('.deco-ring');
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      rings.forEach((r, i) => {
+        r.style.transform = `translate(-50%, calc(-50% + ${y * (0.03 + i * 0.02)}px))`;
+      });
+    }, { passive: true });
+  })();
+
+  // Alumni filter
+  (function () {
+    const btns = document.querySelectorAll('.filter-btn');
+    const editions = document.querySelectorAll('.edition');
+    btns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        btns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        editions.forEach(ed => {
+          if (filter === 'all' || ed.dataset.location === filter) {
+            ed.removeAttribute('hidden');
+          } else {
+            ed.setAttribute('hidden', '');
+          }
+        });
+      });
+    });
+  })();
+
+  // Gallery lightbox
+  (function () {
+    const lightbox = document.getElementById('galleryLightbox');
+    const lightboxImg = document.getElementById('galleryLightboxImg');
+    const closeBtn = document.getElementById('galleryLightboxClose');
+    document.querySelectorAll('.gallery-item img').forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightbox.classList.add('open');
+      });
+    });
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      lightboxImg.src = '';
+    }
+    closeBtn.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+  })();
+</script>
+</body>
+</html>
