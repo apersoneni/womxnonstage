@@ -756,6 +756,32 @@
       pointer-events: none;
     }
 
+    .gallery-filter-row {
+      display: flex; flex-wrap: wrap; justify-content: center;
+      gap: 0.9rem; margin-bottom: 2rem;
+    }
+    .gallery-filter-btn {
+      display: flex; flex-direction: column; align-items: center; gap: 0.35rem;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(201,168,76,0.3);
+      border-radius: 12px;
+      padding: 0.8rem 1.1rem;
+      cursor: pointer;
+      transition: border-color 0.25s, background 0.25s, transform 0.25s;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .gallery-filter-btn .flag { font-size: 1.6rem; line-height: 1; }
+    .gallery-filter-btn .label {
+      font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--lavender);
+    }
+    .gallery-filter-btn:hover { border-color: var(--lavender); transform: translateY(-2px); }
+    .gallery-filter-btn.active {
+      border-color: var(--gold); background: rgba(201,168,76,0.12);
+      box-shadow: 0 0 20px rgba(201,168,76,0.2);
+    }
+    .gallery-filter-btn.active .label { color: var(--gold-lt); }
+
     .gallery-lightbox {
       position: fixed; inset: 0; z-index: 200;
       background: rgba(13,6,24,0.95);
@@ -1250,55 +1276,6 @@
 
     <div class="upcoming-grid">
 
-      <!-- Ed. 14 — Nusa Lembongan -->
-      <div class="upcoming-card featured">
-        <span class="upcoming-badge free">Free Entry</span>
-        <div class="upcoming-flag">🇮🇩</div>
-        <div class="upcoming-edition">Ed. 14 · Next Up</div>
-        <div class="upcoming-city">Nusa Lembongan</div>
-        <div class="upcoming-country">Indonesia</div>
-        <div class="upcoming-date">Sunday, June 28, 2026</div>
-        <div class="upcoming-time">19:00</div>
-        <a class="upcoming-venue" href="https://www.instagram.com/myshizaru" target="_blank" rel="noopener" style="text-decoration:none;">@myshizaru · Shizaru Yoga Studio</a>
-        <img src="wos-logo.jpg" class="upcoming-logo" alt="WOS logo" />
-      </div>
-
-      <!-- Bangkok — Surprise Ed. 15 -->
-      <div class="upcoming-card surprise">
-        <span class="upcoming-badge mystery">Surprise Edition</span>
-        <span class="upcoming-badge free">Free Entry · Donation Based</span>
-        <div class="upcoming-flag">🇹🇭</div>
-        <div class="upcoming-edition">Ed. 15</div>
-        <div class="upcoming-city">Bangkok</div>
-        <div class="upcoming-country">Thailand</div>
-        <div class="upcoming-date">Thursday, 16 July 2026</div>
-        <div class="upcoming-time">19:00</div>
-        <a class="upcoming-venue" href="https://www.instagram.com/arthouse.latphrao" target="_blank" rel="noopener" style="text-decoration:none;">@arthouse.latphrao · Art House Lat Phrao</a>
-        <img src="wos-logo.jpg" class="upcoming-logo" alt="WOS logo" />
-      </div>
-
-      <!-- Ed. 16 — Kuala Lumpur -->
-      <div class="upcoming-card">
-        <span class="upcoming-badge free">Ticketed · RM29</span>
-        <div class="upcoming-flag">🇲🇾</div>
-        <div class="upcoming-edition">Ed. 16</div>
-        <div class="upcoming-city">Kuala Lumpur</div>
-        <div class="upcoming-country">Malaysia</div>
-        <div class="upcoming-date">Saturday, 1 August 2026</div>
-        <div class="upcoming-time">13:00 · Matinée</div>
-        <a class="upcoming-venue" href="https://www.instagram.com/bobokl" target="_blank" rel="noopener" style="text-decoration:none;">@bobokl · Bobo KL</a>
-        <div class="rsvp-wrap" id="kl-rsvp">
-          <button class="rsvp-toggle" onclick="toggleRSVP()">RSVP →</button>
-          <form class="rsvp-inline" id="kl-form" onsubmit="submitRSVP(event)">
-            <input class="rsvp-inline-input" type="email" id="kl-email" placeholder="your@email.com" required />
-            <button class="rsvp-inline-btn" type="submit">→</button>
-          </form>
-          <div class="rsvp-thanks" id="kl-thanks">See you there ✦</div>
-        </div>
-        <a href="kl-flyer.html" target="_blank" style="font-family:'Montserrat',sans-serif;font-size:0.55rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--lavender);text-decoration:none;margin-top:0.4rem;display:block;">View Flyer →</a>
-        <img src="wos-logo.jpg" class="upcoming-logo" alt="WOS logo" />
-      </div>
-
       <!-- Zurich — HOMECOMING Ed. 17 -->
       <div class="upcoming-card featured">
         <span class="upcoming-badge">Homecoming</span>
@@ -1320,6 +1297,30 @@
         <img src="wos-logo.jpg" class="upcoming-logo" alt="WOS logo" />
       </div>
 
+      <!-- Istanbul — Ed. 18 -->
+      <div class="upcoming-card">
+        <span class="upcoming-badge">In Collaboration with Sofar Sounds</span>
+        <div class="upcoming-flag">🇹🇷</div>
+        <div class="upcoming-edition">Ed. 18</div>
+        <div class="upcoming-city">Istanbul</div>
+        <div class="upcoming-country">Turkey</div>
+        <div class="upcoming-date">Sunday, 11 October 2026</div>
+        <div class="upcoming-venue tba">Venue &amp; Lineup — TBA</div>
+        <img src="wos-logo.jpg" class="upcoming-logo" alt="WOS logo" />
+      </div>
+
+      <!-- Zurich — Ed. 19 -->
+      <div class="upcoming-card">
+        <div class="upcoming-flag">🇨🇭</div>
+        <div class="upcoming-edition">Ed. 19</div>
+        <div class="upcoming-city">Zurich</div>
+        <div class="upcoming-country">Switzerland</div>
+        <div class="upcoming-date">Tuesday, 20 October 2026</div>
+        <div class="upcoming-time">20:00</div>
+        <span class="upcoming-venue">Amboss Rampe</span>
+        <img src="wos-logo.jpg" class="upcoming-logo" alt="WOS logo" />
+      </div>
+
     </div>
   </div>
 </section>
@@ -1334,11 +1335,11 @@
 
     <div class="alumni-stats">
       <div class="stat">
-        <span class="stat-num">15</span>
+        <span class="stat-num" id="stat-editions">—</span>
         <span class="stat-label">Editions</span>
       </div>
       <div class="stat">
-        <span class="stat-num">6</span>
+        <span class="stat-num" id="stat-countries">—</span>
         <span class="stat-label">Countries</span>
       </div>
       <div class="stat">
@@ -1346,7 +1347,7 @@
         <span class="stat-label">Attendees per event</span>
       </div>
       <div class="stat">
-        <span class="stat-num">60+</span>
+        <span class="stat-num" id="stat-artists">—</span>
         <span class="stat-label">Artists, Entrepreneurs &amp; Painters</span>
       </div>
     </div>
@@ -1644,6 +1645,24 @@
         </div>
       </div>
 
+      <!-- Ed 17 — Zurich Homecoming -->
+      <div class="edition" data-location="zurich">
+        <div class="edition-meta">
+          <span class="edition-num">Ed. 17</span>
+          <span class="edition-date">August 29, 2026</span>
+          <span class="edition-venue">Ekstase, Zurich 🇨🇭</span>
+        </div>
+        <div class="performers-row">
+          <a class="p-chip music" href="https://www.instagram.com/annabelpersoneni" target="_blank" rel="noopener">Annabel</a>
+          <a class="p-chip music" href="https://www.instagram.com/linda_in_zurich" target="_blank" rel="noopener">Linda</a>
+          <a class="p-chip music" href="https://www.instagram.com/ami_gasser" target="_blank" rel="noopener">Ami Gasser</a>
+          <a class="p-chip music" href="https://www.instagram.com/moon_june_ch" target="_blank" rel="noopener">Joanna</a>
+          <a class="p-chip artist" href="https://www.instagram.com/anapzartist" target="_blank" rel="noopener">Ana</a>
+          <a class="p-chip entrepreneur" href="https://www.linkedin.com/company/portfolio-careers-hub/" target="_blank" rel="noopener">Lidia</a>
+          <a class="p-chip entrepreneur" href="https://www.linkedin.com/company/portfolio-careers-hub/" target="_blank" rel="noopener">Laney</a>
+        </div>
+      </div>
+
     </div>    </div>
   </div>
 </section>
@@ -1656,23 +1675,40 @@
     <div class="section-label">Moments From the Stage</div>
     <h2 class="section-title">Multimedia</h2>
 
+    <div class="gallery-filter-row">
+      <button class="gallery-filter-btn active" data-country="all"><span class="flag">✦</span><span class="label">All</span></button>
+      <button class="gallery-filter-btn" data-country="zurich"><span class="flag">🇨🇭</span><span class="label">Zurich</span></button>
+      <button class="gallery-filter-btn" data-country="argentina"><span class="flag">🇦🇷</span><span class="label">Argentina</span></button>
+      <button class="gallery-filter-btn" data-country="mexico"><span class="flag">🇲🇽</span><span class="label">Mexico</span></button>
+      <button class="gallery-filter-btn" data-country="indonesia"><span class="flag">🇮🇩</span><span class="label">Indonesia</span></button>
+      <button class="gallery-filter-btn" data-country="thailand"><span class="flag">🇹🇭</span><span class="label">Thailand</span></button>
+      <button class="gallery-filter-btn" data-country="malaysia"><span class="flag">🇲🇾</span><span class="label">Malaysia</span></button>
+    </div>
+
     <div class="gallery-grid">
-      <div class="gallery-item"><img src="media/wos-multimedia-01.jpg" alt="Womxn on Stage — full room celebrating together at Ekstase, Zurich" loading="lazy" /><span class="gallery-caption">Ekstase, Zurich 🇨🇭</span></div>
-      <div class="gallery-item"><img src="media/wos-multimedia-02.jpg" alt="Womxn on Stage — performers backstage at Ekstase, Zurich" loading="lazy" /><span class="gallery-caption">Ekstase, Zurich 🇨🇭</span></div>
-      <div class="gallery-item"><img src="media/wos-multimedia-03.jpg" alt="Womxn on Stage — performers in velvet, ukulele in hand, at Ekstase, Zurich" loading="lazy" /><span class="gallery-caption">Ekstase, Zurich 🇨🇭</span></div>
-      <div class="gallery-item"><img src="media/wos-multimedia-04.jpg" alt="Womxn on Stage — cast holding the Womxn on Stage sign at Ekstase, Zurich" loading="lazy" /><span class="gallery-caption">Ekstase, Zurich 🇨🇭</span></div>
-      <div class="gallery-item"><img src="media/wos-multimedia-05.jpg" alt="Womxn on Stage — group portrait by the piano at Casa Arias, Buenos Aires, Argentina" loading="lazy" /><span class="gallery-caption">Casa Arias, Buenos Aires 🇦🇷</span></div>
-      <div class="gallery-item"><img src="media/wos-multimedia-06.jpg" alt="Womxn on Stage — audience and performers together at Casa Arias, Buenos Aires, Argentina" loading="lazy" /><span class="gallery-caption">Casa Arias, Buenos Aires 🇦🇷</span></div>
-      <div class="gallery-item"><img src="media/wos-multimedia-07.jpg" alt="Womxn on Stage — full house group photo at Ekstase, Zurich" loading="lazy" /><span class="gallery-caption">Ekstase, Zurich 🇨🇭</span></div>
-      <div class="gallery-item"><img src="media/wos-multimedia-08.jpg" alt="Womxn on Stage — performers by candlelight at Shizaru, Nusa Lembongan, Bali, Indonesia" loading="lazy" /><span class="gallery-caption">Shizaru, Nusa Lembongan 🇮🇩</span></div>
-      <div class="gallery-item"><img src="media/wos-multimedia-09.jpg" alt="Womxn on Stage — 1 Year Anniversary group photo at Ekstase, Zurich" loading="lazy" /><span class="gallery-caption">Ekstase, Zurich 🇨🇭</span></div>
-      <div class="gallery-item"><img src="media/wos-multimedia-10.jpg" alt="Womxn on Stage — Guadalajara edition cast at Casa Alcalde, Guadalajara, Mexico" loading="lazy" /><span class="gallery-caption">Casa Alcalde, Guadalajara 🇲🇽</span></div>
-      <div class="gallery-item"><img src="media/wos-multimedia-11.jpg" alt="Womxn on Stage — group photo at Shizaru, Nusa Lembongan, Bali, Indonesia" loading="lazy" /><span class="gallery-caption">Shizaru, Nusa Lembongan 🇮🇩</span></div>
-      <div class="gallery-item"><img src="media/wos-multimedia-12.jpg" alt="Womxn on Stage — performers lined up together under stage lights at Ekstase, Zurich" loading="lazy" /><span class="gallery-caption">Ekstase, Zurich 🇨🇭</span></div>
-      <div class="gallery-item"><img src="media/wos-multimedia-13.jpg" alt="Womxn on Stage — cast portrait in front of the starlit red curtain at Ekstase, Zurich" loading="lazy" /><span class="gallery-caption">Ekstase, Zurich 🇨🇭</span></div>
-      <div class="gallery-item"><img src="media/wos-multimedia-14.jpg" alt="Womxn on Stage — performer with ukulele and cast holding the Womxn on Stage sign at Ekstase, Zurich" loading="lazy" /><span class="gallery-caption">Ekstase, Zurich 🇨🇭</span></div>
-      <div class="gallery-item"><img src="media/wos-multimedia-15.jpg" alt="Womxn on Stage — group selfie with performers and audience at Art House Lat Phrao, Bangkok" loading="lazy" /><span class="gallery-caption">Art House Lat Phrao, Bangkok 🇹🇭</span></div>
-      <div class="gallery-item"><img src="media/wos-multimedia-16.jpg" alt="Womxn on Stage — performers on stage with guitar and fairy lights at Art House Lat Phrao, Bangkok" loading="lazy" /><span class="gallery-caption">Art House Lat Phrao, Bangkok 🇹🇭</span></div>
+      <div class="gallery-item" data-country="zurich"><img src="media/wos-multimedia-01.jpg" alt="Womxn on Stage — full room celebrating together at Ekstase, Zurich" loading="lazy" /><span class="gallery-caption">Ekstase, Zurich 🇨🇭</span></div>
+      <div class="gallery-item" data-country="zurich"><img src="media/wos-multimedia-02.jpg" alt="Womxn on Stage — performers backstage at Ekstase, Zurich" loading="lazy" /><span class="gallery-caption">Ekstase, Zurich 🇨🇭</span></div>
+      <div class="gallery-item" data-country="zurich"><img src="media/wos-multimedia-03.jpg" alt="Womxn on Stage — performers in velvet, ukulele in hand, at Ekstase, Zurich" loading="lazy" /><span class="gallery-caption">Ekstase, Zurich 🇨🇭</span></div>
+      <div class="gallery-item" data-country="zurich"><img src="media/wos-multimedia-04.jpg" alt="Womxn on Stage — cast holding the Womxn on Stage sign at Ekstase, Zurich" loading="lazy" /><span class="gallery-caption">Ekstase, Zurich 🇨🇭</span></div>
+      <div class="gallery-item" data-country="argentina"><img src="media/wos-multimedia-05.jpg" alt="Womxn on Stage — group portrait by the piano at Casa Arias, Buenos Aires, Argentina" loading="lazy" /><span class="gallery-caption">Casa Arias, Buenos Aires 🇦🇷</span></div>
+      <div class="gallery-item" data-country="argentina"><img src="media/wos-multimedia-06.jpg" alt="Womxn on Stage — audience and performers together at Casa Arias, Buenos Aires, Argentina" loading="lazy" /><span class="gallery-caption">Casa Arias, Buenos Aires 🇦🇷</span></div>
+      <div class="gallery-item" data-country="zurich"><img src="media/wos-multimedia-07.jpg" alt="Womxn on Stage — full house group photo at Ekstase, Zurich" loading="lazy" /><span class="gallery-caption">Ekstase, Zurich 🇨🇭</span></div>
+      <div class="gallery-item" data-country="indonesia"><img src="media/wos-multimedia-08.jpg" alt="Womxn on Stage — performers by candlelight at Shizaru, Nusa Lembongan, Bali, Indonesia" loading="lazy" /><span class="gallery-caption">Shizaru, Nusa Lembongan 🇮🇩</span></div>
+      <div class="gallery-item" data-country="zurich"><img src="media/wos-multimedia-09.jpg" alt="Womxn on Stage — 1 Year Anniversary group photo at Ekstase, Zurich" loading="lazy" /><span class="gallery-caption">Ekstase, Zurich 🇨🇭</span></div>
+      <div class="gallery-item" data-country="mexico"><img src="media/wos-multimedia-10.jpg" alt="Womxn on Stage — Guadalajara edition cast at Casa Alcalde, Guadalajara, Mexico" loading="lazy" /><span class="gallery-caption">Casa Alcalde, Guadalajara 🇲🇽</span></div>
+      <div class="gallery-item" data-country="indonesia"><img src="media/wos-multimedia-11.jpg" alt="Womxn on Stage — group photo at Shizaru, Nusa Lembongan, Bali, Indonesia" loading="lazy" /><span class="gallery-caption">Shizaru, Nusa Lembongan 🇮🇩</span></div>
+      <div class="gallery-item" data-country="zurich"><img src="media/wos-multimedia-12.jpg" alt="Womxn on Stage — performers lined up together under stage lights at Ekstase, Zurich" loading="lazy" /><span class="gallery-caption">Ekstase, Zurich 🇨🇭</span></div>
+      <div class="gallery-item" data-country="zurich"><img src="media/wos-multimedia-13.jpg" alt="Womxn on Stage — cast portrait in front of the starlit red curtain at Ekstase, Zurich" loading="lazy" /><span class="gallery-caption">Ekstase, Zurich 🇨🇭</span></div>
+      <div class="gallery-item" data-country="zurich"><img src="media/wos-multimedia-14.jpg" alt="Womxn on Stage — performer with ukulele and cast holding the Womxn on Stage sign at Ekstase, Zurich" loading="lazy" /><span class="gallery-caption">Ekstase, Zurich 🇨🇭</span></div>
+      <div class="gallery-item" data-country="thailand"><img src="media/wos-multimedia-15.jpg" alt="Womxn on Stage — group selfie with performers and audience at Art House Lat Phrao, Bangkok" loading="lazy" /><span class="gallery-caption">Art House Lat Phrao, Bangkok 🇹🇭</span></div>
+      <div class="gallery-item" data-country="thailand"><img src="media/wos-multimedia-16.jpg" alt="Womxn on Stage — performers on stage with guitar and fairy lights at Art House Lat Phrao, Bangkok" loading="lazy" /><span class="gallery-caption">Art House Lat Phrao, Bangkok 🇹🇭</span></div>
+      <div class="gallery-item" data-country="malaysia"><img src="media/wos-multimedia-17.jpg" alt="Womxn on Stage — performer singing with guitar on stage at Bobo KL, Kuala Lumpur" loading="lazy" /><span class="gallery-caption">Bobo KL, Kuala Lumpur 🇲🇾</span></div>
+      <div class="gallery-item" data-country="malaysia"><img src="media/wos-multimedia-18.jpg" alt="Womxn on Stage — performer singing by the piano at Bobo KL, Kuala Lumpur" loading="lazy" /><span class="gallery-caption">Bobo KL, Kuala Lumpur 🇲🇾</span></div>
+      <div class="gallery-item" data-country="malaysia"><img src="media/wos-multimedia-19.jpg" alt="Womxn on Stage — performer with ukulele on stage at Bobo KL, Kuala Lumpur" loading="lazy" /><span class="gallery-caption">Bobo KL, Kuala Lumpur 🇲🇾</span></div>
+      <div class="gallery-item" data-country="malaysia"><img src="media/wos-multimedia-20.jpg" alt="Womxn on Stage — performer singing beside the piano at Bobo KL, Kuala Lumpur" loading="lazy" /><span class="gallery-caption">Bobo KL, Kuala Lumpur 🇲🇾</span></div>
+      <div class="gallery-item" data-country="malaysia"><img src="media/wos-multimedia-21.jpg" alt="Womxn on Stage — full room group selfie with audience and performers at Bobo KL, Kuala Lumpur" loading="lazy" /><span class="gallery-caption">Bobo KL, Kuala Lumpur 🇲🇾</span></div>
+      <div class="gallery-item" data-country="malaysia"><img src="media/wos-multimedia-22.jpg" alt="Womxn on Stage — live painter holding finished artwork at Bobo KL, Kuala Lumpur" loading="lazy" /><span class="gallery-caption">Bobo KL, Kuala Lumpur 🇲🇾</span></div>
+      <div class="gallery-item" data-country="malaysia"><img src="media/wos-multimedia-23.jpg" alt="Womxn on Stage — full cast group photo on stage at Bobo KL, Kuala Lumpur" loading="lazy" /><span class="gallery-caption">Bobo KL, Kuala Lumpur 🇲🇾</span></div>
     </div>
   </div>
 </section>
@@ -1985,6 +2021,23 @@
     }, { passive: true });
   })();
 
+  // Auto-computed alumni stats — recalculates from the editions/performers actually on the page
+  (function () {
+    const editions = document.querySelectorAll('#alumni .edition');
+    const countries = new Set();
+    editions.forEach(ed => countries.add(ed.dataset.location));
+
+    const uniquePerformers = new Set();
+    document.querySelectorAll('#alumni .p-chip').forEach(chip => {
+      const key = (chip.getAttribute('href') || '') + '|' + chip.textContent.trim().toLowerCase();
+      uniquePerformers.add(key);
+    });
+
+    document.getElementById('stat-editions').textContent = editions.length;
+    document.getElementById('stat-countries').textContent = countries.size;
+    document.getElementById('stat-artists').textContent = uniquePerformers.size + '+';
+  })();
+
   // Alumni filter
   (function () {
     const btns = document.querySelectorAll('.filter-btn');
@@ -1999,6 +2052,26 @@
             ed.removeAttribute('hidden');
           } else {
             ed.setAttribute('hidden', '');
+          }
+        });
+      });
+    });
+  })();
+
+  // Gallery country filter
+  (function () {
+    const btns = document.querySelectorAll('.gallery-filter-btn');
+    const items = document.querySelectorAll('.gallery-item');
+    btns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        btns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const country = btn.dataset.country;
+        items.forEach(item => {
+          if (country === 'all' || item.dataset.country === country) {
+            item.removeAttribute('hidden');
+          } else {
+            item.setAttribute('hidden', '');
           }
         });
       });
