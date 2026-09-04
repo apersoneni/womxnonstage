@@ -339,6 +339,15 @@
       cursor: pointer; transition: background 0.2s;
     }
     .rsvp-toggle:hover { background: rgba(201,168,76,0.18); }
+    .get-tickets-wrap { width: 100%; margin-top: 0.75rem; padding-top: 1rem; border-top: 1px solid rgba(201,168,76,0.15); }
+    .get-tickets-btn {
+      display: block; width: 100%; box-sizing: border-box;
+      text-align: center; font-family: 'Montserrat', sans-serif;
+      font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--plum); background: var(--gold);
+      padding: 0.65rem 1rem; text-decoration: none; transition: opacity 0.2s;
+    }
+    .get-tickets-btn:hover { opacity: 0.85; }
     .rsvp-inline { display: none; margin-top: 0.6rem; flex-direction: row; }
     .rsvp-inline.open { display: flex; }
     .rsvp-inline-input {
@@ -1276,32 +1285,26 @@
 
     <div class="upcoming-grid">
 
-      <!-- Zurich — HOMECOMING Ed. 17 -->
+      <!-- Zurich — Ed. 18 -->
       <div class="upcoming-card featured">
-        <span class="upcoming-badge">Homecoming</span>
         <div class="upcoming-flag">🇨🇭</div>
-        <div class="upcoming-edition">Ed. 17 · Homecoming</div>
+        <div class="upcoming-edition">Ed. 18</div>
         <div class="upcoming-city">Zurich</div>
         <div class="upcoming-country">Switzerland</div>
-        <div class="upcoming-date">Saturday, 29 August 2026</div>
-        <div class="upcoming-time">20:00</div>
+        <div class="upcoming-date">Saturday, 26 September 2026</div>
+        <div class="upcoming-time">Doors 19:30 · Show 20:00</div>
         <a class="upcoming-venue" href="https://www.instagram.com/ekstase_zuerich" target="_blank" rel="noopener" style="text-decoration:none;">@ekstase · Kanzleistrasse 78</a>
-        <div class="rsvp-wrap" id="zrh-rsvp">
-          <button class="rsvp-toggle" onclick="toggleRSVPZrh()">RSVP →</button>
-          <form class="rsvp-inline" id="zrh-form" onsubmit="submitRSVPZrh(event)">
-            <input class="rsvp-inline-input" type="email" id="zrh-email" placeholder="your@email.com" required />
-            <button class="rsvp-inline-btn" type="submit">→</button>
-          </form>
-          <div class="rsvp-thanks" id="zrh-thanks">See you there ✦</div>
+        <div class="get-tickets-wrap">
+          <a class="get-tickets-btn" href="https://eventfrog.ch/en/p/concerts/indie-alternative/womxn-on-stage-7501595590591001244.html" target="_blank" rel="noopener">Get Tickets →</a>
         </div>
         <img src="wos-logo.jpg" class="upcoming-logo" alt="WOS logo" />
       </div>
 
-      <!-- Istanbul — Ed. 18 -->
+      <!-- Istanbul — Ed. 19 -->
       <div class="upcoming-card">
         <span class="upcoming-badge">In Collaboration with Sofar Sounds</span>
         <div class="upcoming-flag">🇹🇷</div>
-        <div class="upcoming-edition">Ed. 18</div>
+        <div class="upcoming-edition">Ed. 19</div>
         <div class="upcoming-city">Istanbul</div>
         <div class="upcoming-country">Turkey</div>
         <div class="upcoming-date">Sunday, 11 October 2026</div>
@@ -1309,10 +1312,10 @@
         <img src="wos-logo.jpg" class="upcoming-logo" alt="WOS logo" />
       </div>
 
-      <!-- Zurich — Ed. 19 -->
+      <!-- Zurich — Ed. 20 -->
       <div class="upcoming-card">
         <div class="upcoming-flag">🇨🇭</div>
-        <div class="upcoming-edition">Ed. 19</div>
+        <div class="upcoming-edition">Ed. 20</div>
         <div class="upcoming-city">Zurich</div>
         <div class="upcoming-country">Switzerland</div>
         <div class="upcoming-date">Tuesday, 20 October 2026</div>
@@ -1751,36 +1754,29 @@
         <h2 class="section-title">Get<br>Your Ticket</h2>
         <p>WOMXN ON STAGE is a ticketed event with limited capacity — because intimacy matters. Every ticket supports the artists, the space, and the next edition.</p>
         <p>Community pricing available. Reach out if cost is a barrier.</p>
-        <a href="#contact" class="btn-tickets">Secure Your Spot</a>
+        <a href="https://eventfrog.ch/en/p/concerts/indie-alternative/womxn-on-stage-7501595590591001244.html" class="btn-tickets" target="_blank" rel="noopener">Secure Your Spot</a>
       </div>
       <div class="ticket-tiers">
         <div class="tier">
           <div>
             <div class="tier-name">Community</div>
-            <div class="tier-desc">Pay-what-you-can — solidarity pricing</div>
+            <div class="tier-desc">For students</div>
           </div>
-          <div class="tier-price">£—</div>
-        </div>
-        <div class="tier">
-          <div>
-            <div class="tier-name">General</div>
-            <div class="tier-desc">Full-day access to all programming</div>
-          </div>
-          <div class="tier-price">£—</div>
+          <div class="tier-price">CHF 15</div>
         </div>
         <div class="tier">
           <div>
             <div class="tier-name">Supporter</div>
-            <div class="tier-desc">Access + a little extra love from us</div>
+            <div class="tier-desc">Standard pricing</div>
           </div>
-          <div class="tier-price">£—</div>
+          <div class="tier-price">CHF 25</div>
         </div>
         <div class="tier">
           <div>
-            <div class="tier-name">Patron</div>
-            <div class="tier-desc">Priority access, backstage, and recognition</div>
+            <div class="tier-name">Champion</div>
+            <div class="tier-desc">For those who want to support the growth of the WOMXN ON STAGE platform</div>
           </div>
-          <div class="tier-price">£—</div>
+          <div class="tier-price">CHF 40</div>
         </div>
       </div>
     </div>
@@ -1845,7 +1841,7 @@
 
       <div class="venue-card">
         <div class="venue-logo-wrap venue-logo-light">
-          <img src="WhatsApp Image 2026-04-26 at 14.36.55.jpeg" alt="Casa Alcalde Cultural logo" class="venue-logo-img" />
+          <img src="media/casa-alcalde-logo.jpeg" alt="Casa Alcalde Cultural logo" class="venue-logo-img" />
         </div>
         <div class="venue-info">
           <div class="venue-name">Casa Alcalde Cultural</div>
@@ -1856,7 +1852,7 @@
 
       <div class="venue-card">
         <div class="venue-logo-wrap venue-logo-dark">
-          <img src="CASA ARIAS BA.png" alt="Casa Arias logo" class="venue-logo-img" />
+          <img src="media/casa-arias-logo.png" alt="Casa Arias logo" class="venue-logo-img" />
         </div>
         <div class="venue-info">
           <div class="venue-name">Casa Arias</div>
@@ -1867,7 +1863,7 @@
 
       <div class="venue-card">
         <div class="venue-logo-wrap venue-logo-light">
-          <img src="Shizaru logo.png" alt="Shizaru logo" class="venue-logo-img" />
+          <img src="media/shizaru-logo.png" alt="Shizaru logo" class="venue-logo-img" />
         </div>
         <div class="venue-info">
           <div class="venue-name">Shizaru</div>
@@ -1878,7 +1874,7 @@
 
       <div class="venue-card">
         <div class="venue-logo-wrap venue-logo-light">
-          <img src="Art house lat phrao logo.png" alt="Art House Lat Phrao logo" class="venue-logo-img" />
+          <img src="media/art-house-lat-phrao-logo.png" alt="Art House Lat Phrao logo" class="venue-logo-img" />
         </div>
         <div class="venue-info">
           <div class="venue-name">Art House Lat Phrao</div>
@@ -1889,7 +1885,7 @@
 
       <div class="venue-card">
         <div class="venue-logo-wrap venue-logo-light">
-          <img src="bobo logo.png" alt="Bobo KL logo" class="venue-logo-img" />
+          <img src="media/bobo-kl-logo.png" alt="Bobo KL logo" class="venue-logo-img" />
         </div>
         <div class="venue-info">
           <div class="venue-name">Bobo KL</div>
@@ -1919,7 +1915,7 @@
 
       <a class="venue-card" href="https://awam.org.my" target="_blank" rel="noopener" style="text-decoration:none;">
         <div class="venue-logo-wrap venue-logo-light">
-          <img src="AWAM.jpeg" alt="AWAM — All Women's Action Society logo" class="venue-logo-img" />
+          <img src="media/awam-logo.jpeg" alt="AWAM — All Women's Action Society logo" class="venue-logo-img" />
         </div>
         <div class="venue-info">
           <div class="venue-name">AWAM</div>
