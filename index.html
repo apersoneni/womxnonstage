@@ -1153,8 +1153,24 @@
     transition: background 0.2s, color 0.2s;
   }
   .btn-venue-cta:hover { background: var(--gold-lt); }
+  #venues .venues-grid .venue-card:last-child:nth-child(3n+1) { grid-column: 2; }
+  #partners { background: linear-gradient(180deg, #1a0d3a 0%, var(--midnight) 100%); }
+  .partner-role {
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--midnight);
+    background: var(--gold);
+    padding: 0.3rem 0.8rem;
+    border-radius: 999px;
+    margin-bottom: 0.7rem;
+  }
   @media (max-width: 768px) {
     .venues-grid { grid-template-columns: 1fr; max-width: 320px; margin-left: auto; margin-right: auto; }
+    #venues .venues-grid .venue-card:last-child:nth-child(3n+1) { grid-column: auto; }
   }
 
 </style>
@@ -1172,6 +1188,7 @@
     <li><a href="#podcast">Podcast</a></li>
     <li><a href="#tickets">Tickets</a></li>
     <li><a href="#venues">Venues</a></li>
+    <li><a href="#partners">Partners</a></li>
     <li><a href="#charities">Charities</a></li>
     <li><a href="#participants">Participants</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -1865,6 +1882,16 @@
       </div>
 
       <div class="venue-card">
+        <div class="venue-logo-wrap venue-logo-dark">
+          <img src="media/amboss-rampe-logo.png" alt="Amboss Rampe logo" class="venue-logo-img" />
+        </div>
+        <div class="venue-info">
+          <div class="venue-name">Amboss Rampe</div>
+          <div class="venue-city">Zurich, Switzerland 🇨🇭</div>
+        </div>
+      </div>
+
+      <div class="venue-card">
         <div class="venue-logo-wrap venue-logo-light">
           <img src="media/casa-alcalde-logo.jpeg" alt="Casa Alcalde Cultural logo" class="venue-logo-img" />
         </div>
@@ -1916,6 +1943,52 @@
           <div class="venue-name">Bobo KL</div>
           <div class="venue-city">Kuala Lumpur, Malaysia 🇲🇾</div>
           <a class="venue-handle" href="https://instagram.com/bobokl" target="_blank" rel="noopener">@bobokl</a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- BRAND COLLABORATORS & SPONSORS -->
+<section id="partners">
+  <div class="section-inner">
+    <div class="section-label">Stronger Together</div>
+    <h2 class="section-title">Collaborators<br>&amp; Sponsors</h2>
+    <p class="venues-intro">The brands and partners who believe in womxn taking the stage and help make every edition possible.</p>
+
+    <div class="venues-grid">
+
+      <div class="venue-card">
+        <div class="venue-logo-wrap venue-logo-dark">
+          <img src="media/sofar-sounds-logo.png" alt="Sofar Sounds logo" class="venue-logo-img" />
+        </div>
+        <div class="venue-info">
+          <div class="venue-name">Sofar Sounds Istanbul</div>
+          <div class="partner-role">Brand Collaborator</div>
+          <div class="venue-city">Istanbul, Turkey 🇹🇷</div>
+          <a class="venue-handle" href="https://linktr.ee/SofarIstanbul" target="_blank" rel="noopener">Sofar Istanbul ↗</a>
+        </div>
+      </div>
+
+      <div class="venue-card">
+        <div class="venue-logo-wrap venue-logo-light">
+          <img src="media/vibzz-logo.png" alt="Vibzz logo" class="venue-logo-img" />
+        </div>
+        <div class="venue-info">
+          <div class="venue-name">Vibzz</div>
+          <div class="partner-role">Brand Collaborator</div>
+        </div>
+      </div>
+
+      <div class="venue-card">
+        <div class="venue-logo-wrap venue-logo-light">
+          <img src="media/moonhub-logo.png" alt="Moonhub logo" class="venue-logo-img" />
+        </div>
+        <div class="venue-info">
+          <div class="venue-name">Moonhub</div>
+          <div class="partner-role">Sponsor</div>
         </div>
       </div>
 
