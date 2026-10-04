@@ -1048,11 +1048,51 @@
       font-size: 1.2rem; font-weight: 300; line-height: 1.8;
       color: var(--cream); opacity: 0.9; margin-bottom: 1.5rem;
     }
+    .founder-credential {
+      display: inline-block;
+      padding: 0.3rem 0.9rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #5ed8d2;
+      border: 1px solid rgba(94,216,210,0.4);
+      border-radius: 999px;
+      margin-bottom: 1.2rem;
+    }
     .founder-quote {
       font-size: clamp(1.3rem, 2.5vw, 1.8rem); font-style: italic;
       color: var(--lavender); line-height: 1.5;
       margin: 2rem 0; padding-left: 1.5rem;
       border-left: 2px solid var(--gold);
+    }
+
+    /* ── SDG GOALS ─────────────────────────────────────── */
+    #sdg { background: linear-gradient(180deg, var(--violet) 0%, var(--midnight) 100%); }
+    .sdg-intro {
+      font-size: 1.1rem; font-weight: 300; line-height: 1.7;
+      color: var(--cream); opacity: 0.85; max-width: 680px; margin-bottom: 2.5rem;
+    }
+    .sdg-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem;
+    }
+    .sdg-card {
+      display: flex; flex-direction: column; align-items: center; text-align: center;
+      padding: 2rem 1.2rem; border-radius: 6px;
+      background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .sdg-card:hover { transform: translateY(-4px); border-color: rgba(201,168,76,0.4); }
+    .sdg-number {
+      width: 64px; height: 64px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cinzel Decorative', serif; font-weight: 900; font-size: 1.6rem;
+      color: #fff; margin-bottom: 1.1rem; flex-shrink: 0;
+    }
+    .sdg-title {
+      font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 0.85rem;
+      letter-spacing: 0.02em; color: var(--cream);
     }
 
     /* ── MOBILE ────────────────────────────────────────── */
@@ -1199,6 +1239,7 @@
   <a href="#hero" class="nav-logo">W.O.S.</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
+    <li><a href="#sdg">Impact</a></li>
     <li><a href="#upcoming">Upcoming</a></li>
     <li><a href="#alumni">Past Performers</a></li>
     <li><a href="#multimedia">Multimedia</a></li>
@@ -1301,9 +1342,41 @@
       <div class="founder-text">
         <div class="section-label">The Founder</div>
         <h2 class="section-title">Annabel<br>Personeni</h2>
+        <div class="founder-credential">Global Shaper · Zurich Hub</div>
         <p>Singer-songwriter, entrepreneur, and world traveller with a ukulele. Annabel has performed original music across the globe and built creative communities along the way.</p>
+        <p>She holds a Master's in Sustainable Development, and is on a personal mission to spotlight charities advancing the UN Sustainable Development Goals and empowering women worldwide.</p>
         <p>Inspired by her experiences on stage, she founded Womxn on Stage to celebrate artists, painters, and entrepreneurs who dare to bring their vision into the world.</p>
         <blockquote class="founder-quote">"Collaboration over competition. Synergy over ego."</blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SDG GOALS -->
+<section id="sdg">
+  <div class="section-inner">
+    <div class="section-label">Our Commitment</div>
+    <h2 class="section-title">SDG Goals<br>We Champion</h2>
+    <p class="sdg-intro">Womxn On Stage aligns its mission with the United Nations Sustainable Development Goals, using music, art, and entrepreneurship as tools for real-world impact.</p>
+
+    <div class="sdg-grid">
+      <div class="sdg-card">
+        <div class="sdg-number" style="background:#FF3A21;">5</div>
+        <div class="sdg-title">Gender Equality</div>
+      </div>
+      <div class="sdg-card">
+        <div class="sdg-number" style="background:#A21942;">8</div>
+        <div class="sdg-title">Decent Work &amp; Economic Growth</div>
+      </div>
+      <div class="sdg-card">
+        <div class="sdg-number" style="background:#DD1367;">10</div>
+        <div class="sdg-title">Reduced Inequalities</div>
+      </div>
+      <div class="sdg-card">
+        <div class="sdg-number" style="background:#19486A;">17</div>
+        <div class="sdg-title">Partnerships for the Goals</div>
       </div>
     </div>
   </div>
