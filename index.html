@@ -853,75 +853,6 @@
       position: relative; z-index: 1;
     }
 
-    /* ── TICKETS ───────────────────────────────────────── */
-    #tickets {
-      background: linear-gradient(180deg, var(--midnight) 0%, var(--plum) 100%);
-    }
-    .tickets-wrap {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: start;
-    }
-    .ticket-info p {
-      font-size: 1.15rem;
-      font-weight: 300;
-      line-height: 1.8;
-      color: var(--lavender);
-      margin-bottom: 1rem;
-    }
-
-    .ticket-tiers {
-      display: flex; flex-direction: column; gap: 1rem;
-    }
-    .tier {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.5rem 2rem;
-      border: 1px solid rgba(201,168,76,0.2);
-      background: rgba(255,255,255,0.02);
-      transition: all 0.3s;
-    }
-    .tier:hover {
-      border-color: rgba(201,168,76,0.5);
-      background: rgba(201,168,76,0.05);
-    }
-    .tier-name {
-      font-family: 'Cinzel Decorative', serif;
-      font-size: 0.85rem;
-      color: var(--cream);
-      margin-bottom: 0.25rem;
-    }
-    .tier-desc {
-      font-size: 0.9rem;
-      font-weight: 300;
-      color: var(--lavender);
-    }
-    .tier-price {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.75rem;
-      font-weight: 300;
-      color: var(--gold);
-      white-space: nowrap;
-    }
-
-    .btn-tickets {
-      display: inline-block;
-      margin-top: 2rem;
-      padding: 1.1rem 3.5rem;
-      background: linear-gradient(135deg, var(--gold) 0%, var(--blush) 100%);
-      color: var(--plum);
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.75rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      text-decoration: none;
-      font-weight: 500;
-      transition: opacity 0.3s, transform 0.3s;
-    }
-    .btn-tickets:hover { opacity: 0.85; transform: translateY(-2px); }
-
     /* ── NEWSLETTER / CONTACT ──────────────────────────── */
     #contact {
       background: linear-gradient(180deg, var(--plum) 0%, #0d0618 100%);
@@ -1105,7 +1036,6 @@
       .about-grid { grid-template-columns: 1fr; gap: 3rem; }
       .founder-wrap { grid-template-columns: 1fr; gap: 3rem; }
       .founder-photo::before { display: none; }
-      .tickets-wrap { grid-template-columns: 1fr; }
       .newsletter-form { flex-direction: column; }
       .newsletter-form button { padding: 1rem; }
       section { padding: 5rem 1.5rem; }
@@ -1249,7 +1179,6 @@
     <li><a href="#alumni">Past Performers</a></li>
     <li><a href="#multimedia">Multimedia</a></li>
     <li><a href="#podcast">Podcast</a></li>
-    <li><a href="#tickets">Tickets</a></li>
     <li><a href="#venues">Venues</a></li>
     <li><a href="#partners">Partners</a></li>
     <li><a href="#charities">Charities</a></li>
@@ -1289,7 +1218,7 @@
       <span class="hero-country-sep">·</span>
       <span class="hero-country">🇹🇭 Thailand</span>
     </div>
-    <a href="#tickets" class="btn-primary">Get Your Ticket</a>
+    <a href="#upcoming" class="btn-primary">Get Your Ticket</a>
   </div>
 
   <div class="scroll-hint">
@@ -1399,39 +1328,8 @@
 
     <div class="upcoming-grid">
 
-      <!-- Zurich — Ed. 18 -->
-      <div class="upcoming-card featured">
-        <div class="upcoming-flag">🇨🇭</div>
-        <div class="upcoming-edition">Ed. 18</div>
-        <div class="upcoming-city">Zurich</div>
-        <div class="upcoming-country">Switzerland</div>
-        <div class="upcoming-date">Saturday, 26 September 2026</div>
-        <div class="upcoming-time">Doors 19:30 · Show 20:00</div>
-        <a class="upcoming-venue" href="https://www.instagram.com/ekstase_zuerich" target="_blank" rel="noopener" style="text-decoration:none;">@ekstase · Kanzleistrasse 78</a>
-        <div class="get-tickets-wrap">
-          <a class="get-tickets-btn" href="https://eventfrog.ch/en/p/concerts/indie-alternative/womxn-on-stage-7501595590591001244.html" target="_blank" rel="noopener">Get Tickets →</a>
-        </div>
-        <img src="wos-logo.jpg" class="upcoming-logo" alt="WOS logo" />
-      </div>
-
-      <!-- Istanbul — Ed. 19 -->
-      <div class="upcoming-card">
-        <span class="upcoming-badge">In Collaboration with Sofar Sounds &amp; TheraPera</span>
-        <div class="upcoming-flag">🇹🇷</div>
-        <div class="upcoming-edition">Ed. 19</div>
-        <div class="upcoming-city">Istanbul</div>
-        <div class="upcoming-country">Turkey</div>
-        <div class="upcoming-date">Sunday, 11 October 2026</div>
-        <div class="upcoming-lineup"><strong>Featuring</strong><br>Bediz · Elif · Sevgi · Hatice · Pelin · Beril · Buse</div>
-        <span class="upcoming-venue">TheraPera</span>
-        <div class="get-tickets-wrap">
-          <a class="get-tickets-btn" href="https://linktr.ee/SofarIstanbul" target="_blank" rel="noopener">Sign Up →</a>
-        </div>
-        <img src="wos-logo.jpg" class="upcoming-logo" alt="WOS logo" />
-      </div>
-
       <!-- Zurich — Ed. 20 -->
-      <div class="upcoming-card">
+      <div class="upcoming-card featured">
         <span class="upcoming-badge">In Collaboration with Amboss Rampe</span>
         <div class="upcoming-flag">🇨🇭</div>
         <div class="upcoming-edition">Ed. 20</div>
@@ -1955,31 +1853,6 @@
   </div>
 </section>
 
-<div class="divider"></div>
-
-<!-- TICKETS -->
-<section id="tickets">
-  <div class="section-inner">
-    <div class="tickets-wrap">
-      <div class="ticket-info">
-        <div class="section-label">Join Us</div>
-        <h2 class="section-title">Get<br>Your Ticket</h2>
-        <p>WOMXN ON STAGE is a ticketed event with limited capacity — because intimacy matters. Every ticket supports the artists, the space, and the next edition.</p>
-        <p>Community pricing available. Reach out if cost is a barrier.</p>
-        <a href="https://eventfrog.ch/en/p/concerts/indie-alternative/womxn-on-stage-7501595590591001244.html" class="btn-tickets" target="_blank" rel="noopener">Secure Your Spot</a>
-      </div>
-      <div class="ticket-tiers">
-        <div class="tier">
-          <div>
-            <div class="tier-name">Supporter</div>
-            <div class="tier-desc">Standard pricing</div>
-          </div>
-          <div class="tier-price">CHF 25</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <div class="divider"></div>
 
